@@ -107,7 +107,7 @@ export const generateOrgan = (notesList) => {
     Tone.Transport.bpm.value = 100;
 
     // Create an array of notes to be played
-    const timing = ['+0:2', '+6:0', '+11:2','+15:0', '+5.0', '+19:4:2', '+19:3:0'];
+    const timing = ['+0:2', '+1:2', '+5.0', '+6:0', '+11:2', '+11:2:2', '12:0:2', '+15:0'];
 
     function makeTiming() {
         let timeIndex;
@@ -125,7 +125,7 @@ export const generateOrgan = (notesList) => {
     const synthPart1 = new Tone.Sequence(
         function (time, note) {
             event.humanize = true;
-            leftSynth.triggerAttackRelease(note, '5:0', makeTiming());
+            leftSynth.triggerAttackRelease(note, '4:0', makeTiming());
             synthStart = true;
         },
         notes,
@@ -268,12 +268,12 @@ export const generateOrgan = (notesList) => {
     // }
 
     // //size the canvases
-    // function sizeCanvases() {
-    //     canvasWidth = fftCanvas.offsetWidth;
-    //     canvasHeight = fftCanvas.offsetHeight;
-    //     fftContext.canvas.width = canvasWidth;
-    //     fftContext.canvas.height = canvasHeight;
-    // }
+    function sizeCanvases() {
+        canvasWidth = fftCanvas.offsetWidth;
+        canvasHeight = fftCanvas.offsetHeight;
+        fftContext.canvas.width = canvasWidth;
+        fftContext.canvas.height = canvasHeight;
+    }
 
     function loop() {
         requestAnimationFrame(animationLooper);
@@ -286,7 +286,7 @@ export const generateOrgan = (notesList) => {
  
     let synthInterval = setInterval( () => {
             if (synthStart) {
-                // sizeCanvases();
+                sizeCanvases();
                 loop();
                 clearInterval(synthInterval);
             }

@@ -2,7 +2,7 @@ const allTiming, allTimingLength;
 
 export const makeTiming = (tideObj) => {
 
-    allTiming = ['+0:2', '+1:2', '+5.0', '+6:0', '+11:2', '+11:2:2', '12:0:2', '+15:0', '+19:3:0', '+19:4:2', '+23:2'];
+    allTiming = ['+15:0', '+19:3:0', '+19:4:2', '+23:2'];
     allTimingLength = allTiming.length;
 
     for (let i = 0; i < allNotesLength; i++) {
