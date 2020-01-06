@@ -8,7 +8,10 @@
 // ---------------------------------------------------------------------------------
 
 
-
+* {
+    margin: 0;
+    padding: 0;
+}
 
 body{
     background:#000;
@@ -17,6 +20,7 @@ body{
     font-family: 'Questrial', sans-serif;
     color:#555;
 }
+
 @-webkit-keyframes red{
     0% {-webkit-transform: rotate(0deg) translate(-40px) rotate(0deg) scale(1,1);}
     50% {-webkit-transform: rotate(-180deg) translate(-40px) rotate(-180deg) scale(1,1.33);}
@@ -50,7 +54,6 @@ body{
 #red,
 #green,
 #blue{
-    padding: 0;
     position:absolute;
     top:50%;
     left:50%;
@@ -58,6 +61,13 @@ body{
     height:400px;
     margin:-200px 0 0 -200px;
 }
+#blue{
+    -webkit-animation:blue 6s linear infinite;
+    -moz-animation:blue 6s linear infinite;
+    background-image: -webkit-radial-gradient(50% 50%, circle contain, rgba(86, 173, 223, .75), rgba(86, 173, 223, 0) 100%);
+    background-image: -moz-radial-gradient(50% 50%, circle contain, rgba(86, 173, 223, .75), rgba(86, 173, 223, 0) 100%);           
+}
+
 #red{
     z-index: -2;
     -webkit-animation:7s red linear infinite;
@@ -65,12 +75,7 @@ body{
     background-image: -moz-radial-gradient(50% 50%, circle contain, rgba(222, 75, 218, .75), rgba(222, 75, 218, 0) 100%);
     background-image: -webkit-radial-gradient(50% 50%, circle contain, rgba(222, 75, 218, .75), rgba(222, 75, 218, 0) 100%);         
 }
-#blue{
-    -webkit-animation:blue 6s linear infinite;
-    -moz-animation:blue 6s linear infinite;
-    background-image: -webkit-radial-gradient(50% 50%, circle contain, rgba(86, 173, 223, .75), rgba(86, 173, 223, 0) 100%);
-    background-image: -moz-radial-gradient(50% 50%, circle contain, rgba(86, 173, 223, .75), rgba(86, 173, 223, 0) 100%);           
-}
+
 #green{
     -webkit-animation:green 8s linear infinite;
     -moz-animation:green 8s linear infinite;

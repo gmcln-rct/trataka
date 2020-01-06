@@ -34,6 +34,5 @@ export const makeSynth = () => {
             filterEnvelope
         }
 
-
     }).connect(tremolo);
 }
