@@ -180,6 +180,15 @@ export const generateOrgan = (notesList) => {
     const ctx = fftCanvas.getContext("2d");
 
     // NEW CODE
+
+    let center_x, center_y, radius, bars,
+        x_end, y_end, bar_height, bar_width,
+        frequency_array;
+
+    bars = 200;
+    bar_width = 2;
+
+
     function animationLooper() {
 
         // set to the size of device
@@ -205,13 +214,13 @@ export const generateOrgan = (notesList) => {
         ctx.arc(center_x, center_y, radius, 0, 2 * Math.PI);
         ctx.stroke();
 
-        analyser.getByteFrequencyData(frequency_array);
+        // analyser.getByteFrequencyData(frequency_array);
         for (var i = 0; i < bars; i++) {
 
             //divide a circle into equal parts
             rads = Math.PI * 2 / bars;
 
-            bar_height = frequency_array[i] * 0.7;
+            bar_height = fft[i] * 0.7;
 
             // set coordinates
             x = center_x + Math.cos(rads * i) * (radius);
@@ -220,10 +229,10 @@ export const generateOrgan = (notesList) => {
             y_end = center_y + Math.sin(rads * i) * (radius + bar_height);
 
             //draw a bar
-            drawBar(x, y, x_end, y_end, bar_width, frequency_array[i]);
+            drawBar(x, y, x_end, y_end, bar_width, fft[i]);
 
         }
-        window.requestAnimationFrame(animationLooper);
+        // window.requestAnimationFrame(animationLooper);
     }
 
     // for drawing a bar
@@ -242,32 +251,32 @@ export const generateOrgan = (notesList) => {
     // END NEW CODE
 
     // drawing the FFT
-    function drawFFT(values) {
-        fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
-        let x, y, barWidth, val;
-        for (let i = 0, len = values.length; i < len - 1; i++) {
-            barWidth = canvasWidth / len;
-            x = barWidth * i;
+    // function drawFFT(values) {
+    //     fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
+    //     let x, y, barWidth, val;
+    //     for (let i = 0, len = values.length; i < len - 1; i++) {
+    //         barWidth = canvasWidth / len;
+    //         x = barWidth * i;
             
-            val = Math.abs(values[i] / 255);
-            y = val * canvasHeight;
-            fftContext.fillStyle = "rgba(255, 255, 204, " + val + ")";
+    //         val = Math.abs(values[i] / 255);
+    //         y = val * canvasHeight;
+    //         fftContext.fillStyle = "rgba(255, 255, 204, " + val + ")";
 
-            // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
-            fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
-        }
-    }
+    //         // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
+    //         fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
+    //     }
+    // }
 
-    //size the canvases
-    function sizeCanvases() {
-        canvasWidth = fftCanvas.offsetWidth;
-        canvasHeight = fftCanvas.offsetHeight;
-        fftContext.canvas.width = canvasWidth;
-        fftContext.canvas.height = canvasHeight;
-    }
+    // //size the canvases
+    // function sizeCanvases() {
+    //     canvasWidth = fftCanvas.offsetWidth;
+    //     canvasHeight = fftCanvas.offsetHeight;
+    //     fftContext.canvas.width = canvasWidth;
+    //     fftContext.canvas.height = canvasHeight;
+    // }
 
     function loop() {
-        requestAnimationFrame(loop);
+        requestAnimationFrame(animationLooper);
             //get the fft data and draw it
             drawFFT(fft.getValue());
             // console.log(fft.getValue());
@@ -277,7 +286,7 @@ export const generateOrgan = (notesList) => {
  
     let synthInterval = setInterval( () => {
             if (synthStart) {
-                sizeCanvases();
+                // sizeCanvases();
                 loop();
                 clearInterval(synthInterval);
             }
