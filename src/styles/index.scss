@@ -8,17 +8,13 @@
 // ---------------------------------------------------------------------------------
 
 
-body {
-    font-family: 'Questrial', sans-serif;
 
-  
-}
 
 body{
     background:#000;
     overflow:hidden;
     height:100%;
-    font-family: "facitweb-1","facitweb-2", "Courier New";
+    font-family: 'Questrial', sans-serif;
     color:#555;
 }
 @-webkit-keyframes red{
@@ -54,6 +50,7 @@ body{
 #red,
 #green,
 #blue{
+    padding: 0;
     position:absolute;
     top:50%;
     left:50%;
@@ -62,6 +59,7 @@ body{
     margin:-200px 0 0 -200px;
 }
 #red{
+    z-index: -2;
     -webkit-animation:7s red linear infinite;
     -moz-animation:7s red linear infinite;
     background-image: -moz-radial-gradient(50% 50%, circle contain, rgba(222, 75, 218, .75), rgba(222, 75, 218, 0) 100%);
