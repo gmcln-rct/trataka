@@ -11,11 +11,12 @@
 body {
     font-family: 'Questrial', sans-serif;
 
-    background: linear-gradient(358deg, #016699, #24b4a4, #1f8acc) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  background:
+    radial-gradient(
+      circle closest-side,
+      yellow,
+      #f06d06
+    );
 
 
     overflow: hidden;
