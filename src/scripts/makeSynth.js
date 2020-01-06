@@ -10,7 +10,7 @@ export const makeSynth = () => {
         releaseCurve: 'linear'
     };
     let filterEnvelope = {
-        baseFrequency: 400,
+        baseFrequency: 200,
         octaves: 4,
         attack: 0,
         decay: 0,
@@ -32,12 +32,7 @@ export const makeSynth = () => {
             oscillator: { type: 'cosine' },
             envelope,
             filterEnvelope
-        },
-        voice2: {
-            oscillator: { type: 'bounce' },
-            envelope,
-            filterEnvelope
-        },
+        }
 
 
     }).connect(tremolo);
