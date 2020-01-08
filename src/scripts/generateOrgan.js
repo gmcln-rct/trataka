@@ -175,28 +175,28 @@ export const generateOrgan = (notesList) => {
     leftSynth.fan(waveform, fft);
     rightSynth.fan(waveform, fft);
 
-    let canvasWidth, canvasHeight;
+    let canvasWidth, canvasHeight, ctx;
 
     const fftCanvas = document.getElementById("viz-canvas");
     const fftContext = fftCanvas.getContext("2d");
 
 
     // drawing the FFT
-    function drawFFT(values) {
-        fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
-        let x, y, barWidth, val;
-        for (let i = 0, len = values.length; i < len - 1; i++) {
-            barWidth = canvasWidth / len;
-            x = barWidth * i;
+    // function drawFFT(values) {
+    //     fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
+    //     let x, y, barWidth, val;
+    //     for (let i = 0, len = values.length; i < len - 1; i++) {
+    //         barWidth = canvasWidth / len;
+    //         x = barWidth * i;
 
-            val = Math.abs(values[i] / 255);
-            y = val * canvasHeight;
-            fftContext.fillStyle = "rgba(255, 255, 204, " + val + ")";
+    //         val = Math.abs(values[i] / 255);
+    //         y = val * canvasHeight;
+    //         fftContext.fillStyle = "rgba(255, 255, 179, " + val + ")";
 
-            // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
-            fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
-        }
-    }
+    //         // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
+    //         fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
+    //     }
+    // }
 
     //size the canvases
     function sizeCanvases() {
@@ -205,6 +205,88 @@ export const generateOrgan = (notesList) => {
         fftContext.canvas.width = canvasWidth;
         fftContext.canvas.height = canvasHeight;
     }
+
+
+    // ALT
+    ctx = fftContext;
+    function drawFFT(array) {
+
+        //just show bins with a value over the treshold
+        var threshold = 0;
+        // clear the current state
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        //the max count of bins for the visualization
+        var maxBinCount = array.length;
+        //space between bins
+        var space = 3;
+
+        ctx.save();
+
+
+        ctx.globalCompositeOperation = 'source-over';
+
+        //console.log(maxBinCount); //--> 1024
+        ctx.scale(0.5, 0.5);
+        ctx.translate(window.innerWidth, window.innerHeight);
+        ctx.fillStyle = "#fff";
+
+        var bass = Math.floor(array[1]); //1Hz Frequenz 
+        var radius = 500;
+
+        var bar_length_factor = 1;
+        if (canvasWidth >= 785) {
+            bar_length_factor = 1.0;
+        }
+        else if (canvasWidth < 785) {
+            bar_length_factor = 1.5;
+        }
+        else if (canvasWidth < 500) {
+            bar_length_factor = 20.0;
+        }
+        console.log(canvasWidth);
+        //go over each bin
+        for (var i = 0; i < maxBinCount; i++) {
+
+            var value = array[i];
+            if (value >= threshold) {
+                //draw bin
+                //ctx.fillRect(0 + i * space, c.height - value, 2 , c.height);
+                //ctx.fillRect(i * space, c.height, 2, -value);
+                ctx.fillRect(0, radius, canvasWidth <= 450 ? 2 : 3, -value / bar_length_factor);
+                ctx.rotate((180 / 128) * Math.PI / 180);
+            }
+        }
+
+        for (var i = 0; i < maxBinCount; i++) {
+
+            var value = array[i];
+            if (value >= threshold) {
+
+                //draw bin
+                //ctx.fillRect(0 + i * space, c.height - value, 2 , c.height);
+                //ctx.fillRect(i * space, c.height, 2, -value);
+                ctx.rotate(-(180 / 128) * Math.PI / 180);
+                ctx.fillRect(0, radius, canvasWidth <= 450 ? 2 : 3, -value / bar_length_factor);
+            }
+        }
+
+        for (var i = 0; i < maxBinCount; i++) {
+
+            var value = array[i];
+            if (value >= threshold) {
+
+                //draw bin
+                //ctx.fillRect(0 + i * space, c.height - value, 2 , c.height);
+                //ctx.fillRect(i * space, c.height, 2, -value);
+                ctx.rotate((180 / 128) * Math.PI / 180);
+                ctx.fillRect(0, radius, canvasWidth <= 450 ? 2 : 3, -value / bar_length_factor);
+            }
+        }
+
+        ctx.restore();
+    }
+    // ALT END
+
 
     function loop() {
         requestAnimationFrame(loop);
@@ -225,66 +307,7 @@ export const generateOrgan = (notesList) => {
     // bar_width = 2;
 
 
-    // function animationLooper() {
-
-    //     // set to the size of device
-
-    //     canvas.width = window.innerWidth;
-    //     canvas.height = window.innerHeight;
-
-
-    //     // find the center of the window
-    //     center_x = canvas.width / 2;
-    //     center_y = canvas.height / 2;
-    //     radius = 150;
-
-    //     // style the background
-    //     var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    //     gradient.addColorStop(0, "rgba(35, 7, 77, 1)");
-    //     gradient.addColorStop(1, "rgba(204, 83, 51, 1)");
-    //     ctx.fillStyle = gradient;
-    //     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    //     //draw a circle
-    //     ctx.beginPath();
-    //     ctx.arc(center_x, center_y, radius, 0, 2 * Math.PI);
-    //     ctx.stroke();
-
-    //     // analyser.getByteFrequencyData(frequency_array);
-    //     for (var i = 0; i < bars; i++) {
-
-    //         //divide a circle into equal parts
-    //         rads = Math.PI * 2 / bars;
-
-    //         bar_height = fft[i] * 0.7;
-
-    //         // set coordinates
-    //         x = center_x + Math.cos(rads * i) * (radius);
-    //         y = center_y + Math.sin(rads * i) * (radius);
-    //         x_end = center_x + Math.cos(rads * i) * (radius + bar_height);
-    //         y_end = center_y + Math.sin(rads * i) * (radius + bar_height);
-
-    //         //draw a bar
-    //         drawBar(x, y, x_end, y_end, bar_width, fft[i]);
-
-    //     }
-    //     // window.requestAnimationFrame(animationLooper);
-    // }
-
-    // // for drawing a bar
-    // function drawBar(x1, y1, x2, y2, width, frequency) {
-
-    //     var lineColor = "rgb(" + frequency + ", " + frequency + ", " + 205 + ")";
-
-    //     ctx.strokeStyle = lineColor;
-    //     ctx.lineWidth = width;
-    //     ctx.beginPath();
-    //     ctx.moveTo(x1, y1);
-    //     ctx.lineTo(x2, y2);
-    //     ctx.stroke();
-    // }
-
-    // END NEW CODE
+    
 
     // drawing the FFT
     // function drawFFT(values) {
