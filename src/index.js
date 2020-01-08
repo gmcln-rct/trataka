@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
             alert('Please select Coastal Station');
         } else {
             elem.setAttribute('class','stop-button');
-            elem.value = 'Stop Organ';
+            elem.value = 'Stop';
             result = selection.value;
  
             StartAudioContext(Tone.context,'#select-button')
