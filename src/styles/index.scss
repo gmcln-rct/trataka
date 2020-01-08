@@ -14,11 +14,12 @@
 }
 
 body{
+    background-color: black;
   background-image:
     radial-gradient(
       2em,
-      rgba(255,255,159,0.4),
-      rgb(44, 0, 0)
+      rgba(255,255,159,0.2),
+      rgba(44, 0, 0, 0.4)
     );
     overflow:hidden;
     height:100%;
@@ -66,7 +67,6 @@ body{
 }
 
 #red{
-
     -webkit-animation:7s red 70s linear infinite;
     -moz-animation:7s red 70s linear infinite;
     background-image: -moz-radial-gradient(50% 50%, circle contain, rgba(222, 75, 218, .75), rgba(222, 75, 218, 0) 100%);
