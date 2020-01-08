@@ -14,13 +14,13 @@ export const makeSynth = () => {
         octaves: 4,
         attack: 0,
         decay: 0,
-        release: 4000
+        release: 8000
     };
 
     let tremolo = new Tone.Tremolo(20, 3);
     
     return new Tone.PolySynth({
-        harmonicity: 2,
+        harmonicity: 10,
         resonance: 1600,
         volume: -19,
         voice0: {

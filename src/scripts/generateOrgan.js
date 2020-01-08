@@ -8,6 +8,8 @@ let leftSynth, rightSynth, echo, delay, delayFade;
 export let _isPlaying = false;
 // let _isPlaying;
 
+// STOPPING ORGAN
+
 export const stopOrgan = () => {
     if (_isPlaying) {
         console.log("trying to stop...")
@@ -50,6 +52,8 @@ export const stopOrgan = () => {
         console.log("disposed")
     }
 };
+
+// STOP ORGAN END
 
 export const generateOrgan = (notesList) => {
     
@@ -104,14 +108,15 @@ export const generateOrgan = (notesList) => {
     delayFade.connect(delay);
 
     // Slow Transport bpw Down
-    Tone.Transport.bpm.value = 100;
+    Tone.Transport.bpm.value = 50;
 
     // Create an array of notes to be played
     const timing = ['+0:2', '+1:2', '+5.0', '+6:0', '+11:2', '+11:2:2', '12:0:2', '+15:0'];
-
+    let timeIndex;
+    let indivTiming;
+    
     function makeTiming() {
-        let timeIndex;
-        let indivTiming;
+
         timeIndex = Math.random(timing.length);
         indivTiming = timing[timeIndex];
         return indivTiming;
@@ -297,50 +302,7 @@ export const generateOrgan = (notesList) => {
     }
 
 
-    // NEW CODE
 
-    // let center_x, center_y, radius, bars,
-    //     x_end, y_end, bar_height, bar_width,
-    //     frequency_array;
-
-    // bars = 200;
-    // bar_width = 2;
-
-
-    
-
-    // drawing the FFT
-    // function drawFFT(values) {
-    //     fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
-    //     let x, y, barWidth, val;
-    //     for (let i = 0, len = values.length; i < len - 1; i++) {
-    //         barWidth = canvasWidth / len;
-    //         x = barWidth * i;
-            
-    //         val = Math.abs(values[i] / 255);
-    //         y = val * canvasHeight;
-    //         fftContext.fillStyle = "rgba(255, 255, 204, " + val + ")";
-
-    //         // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
-    //         fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
-    //     }
-    // }
-
-    // //size the canvases
-    // function sizeCanvases() {
-    //     canvasWidth = fftCanvas.offsetWidth;
-    //     canvasHeight = fftCanvas.offsetHeight;
-    //     fftContext.canvas.width = canvasWidth;
-    //     fftContext.canvas.height = canvasHeight;
-    // }
-
-    // function loop() {
-    //     requestAnimationFrame(animationLooper);
-    //         //get the fft data and draw it
-    //         drawFFT(fft.getValue());
-    //         // console.log(fft.getValue());
-
-    // }
 
  
     let synthInterval = setInterval( () => {
