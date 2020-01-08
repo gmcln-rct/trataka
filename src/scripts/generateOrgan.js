@@ -15,13 +15,11 @@ export const stopOrgan = () => {
         console.log("trying to stop...")
 
         synthPart1 = new Tone.Sequence();
-        synthPart2 = new Tone.Sequence();
  
         synthPart1.removeAll();
         synthPart1.stop();
 
-        synthPart2.removeAll();
-        synthPart2.stop();
+
 
         // Stop Transport
         Tone.Transport.stop();
@@ -47,7 +45,7 @@ export const stopOrgan = () => {
 
         console.log('disposing....')
         synthPart1.dispose();
-        synthPart2.dispose();
+
         echo.dispose();
         console.log("disposed")
     }
@@ -79,7 +77,16 @@ export const generateOrgan = (notesList) => {
         return filter;
     });
 
-    echo = new Tone.FeedbackDelay('16n', 0.2);
+    echo = new Tone.FeedbackDelay('16n', 0.04);
+    //routing synth through the reverb
+    equalizer.forEach((equalizerBand, index) => {
+        if (index < equalizer.length - 1) {
+            equalizerBand.connect(equalizer[index + 1]);
+        } else {
+            equalizerBand.connect(echo);
+        }
+    }); 
+    
     delay = Tone.context.createDelay(11.0);
     delayFade = Tone.context.createGain();
 
@@ -94,20 +101,8 @@ export const generateOrgan = (notesList) => {
 
     // NEW REVERB
 
-    let freeverb = new Tone.Freeverb(1, 4000).toMaster();
+    let freeverb = new Tone.Freeverb(10, 4000).toMaster();
     freeverb.connect(freeverb);
-
-    //routing synth through the reverb
-
-    
-
-    equalizer.forEach((equalizerBand, index) => {
-        if (index < equalizer.length - 1) {
-            equalizerBand.connect(equalizer[index + 1]);
-        } else {
-            equalizerBand.connect(echo);
-        }
-    });
 
     echo.toMaster();
     echo.connect(delay);
@@ -143,29 +138,17 @@ export const generateOrgan = (notesList) => {
             synthStart = true;
         },
         notes,
-        "2m"
+        "1m"
     );
 
 
-    // CREATE SEQUENCE 2
-    const synthPart2 = new Tone.Sequence(
 
-        function (time, note) {
-
-            event.humanize = true;
-            rightSynth.triggerAttackRelease(note, '1:1', makeTiming());
-            synthStart = true;
-
-        },
-        notes,
-        "4m"
-    );
 
     synthPart1.humanize = true;
-    synthPart2.humanize = true;
+
 
     synthPart1.start();
-    synthPart2.start();
+    // synthPart2.start();
 
     // START AUDIO TRANSPORT
     Tone.Transport.start();
