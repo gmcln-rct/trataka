@@ -92,6 +92,15 @@ export const generateOrgan = (notesList) => {
     leftPanner.connect(equalizer[0]);
     rightPanner.connect(equalizer[0]);
 
+    // NEW REVERB
+
+    let freeverb = new Tone.Freeverb(1, 4000).toMaster();
+    freeverb.connect(freeverb);
+
+    //routing synth through the reverb
+
+    
+
     equalizer.forEach((equalizerBand, index) => {
         if (index < equalizer.length - 1) {
             equalizerBand.connect(equalizer[index + 1]);
@@ -151,7 +160,6 @@ export const generateOrgan = (notesList) => {
         notes,
         "4m"
     );
-
 
     synthPart1.humanize = true;
     synthPart2.humanize = true;

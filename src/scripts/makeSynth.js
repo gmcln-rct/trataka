@@ -25,15 +25,13 @@ export const makeSynth = () => {
         volume: -19,
         voice0: {
             oscillator: {   frequency: 400,
-                            type: 'sawtooth',
+                            type: 'sine',
                             phase: 180 },
-            envelope,
-            filterEnvelope
+
         },
         voice1: {
             oscillator: { type: 'cosine' },
-            envelope,
-            filterEnvelope
+
         }
     }).connect(tremolo);
 }
