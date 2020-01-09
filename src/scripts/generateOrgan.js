@@ -136,7 +136,7 @@ export const generateOrgan = (notesList) => {
             synthStart = true;
         },
         notes,
-        "3m"
+        "1n"
     );
 
 
