@@ -19,8 +19,6 @@ export const stopOrgan = () => {
         synthPart1.removeAll();
         synthPart1.stop();
 
-
-
         // Stop Transport
         Tone.Transport.stop();
 
@@ -138,7 +136,7 @@ export const generateOrgan = (notesList) => {
             synthStart = true;
         },
         notes,
-        "1m"
+        "3m"
     );
 
 
@@ -160,9 +158,7 @@ export const generateOrgan = (notesList) => {
     // VISUALIZER 
     // Currently just doing FFT
 
-    // ------------------
-    // VISUALIZER
-    // Currently just doing FFT
+
 
     let fftNum = 4096;
     const fft = new Tone.Analyser("fft", fftNum);
