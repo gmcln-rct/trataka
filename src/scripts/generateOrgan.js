@@ -8,6 +8,10 @@ let leftSynth, rightSynth, echo, delay, delayFade;
 export let _isPlaying = false;
 // let _isPlaying;
 
+export const muteOrgan = () => {
+    Tone.Master.mute();
+}
+
 // STOPPING ORGAN
 
 export const stopOrgan = () => {
@@ -45,6 +49,8 @@ export const stopOrgan = () => {
         synthPart1.dispose();
 
         echo.dispose();
+
+        Tone.Master.dispose();
         console.log("disposed")
     }
 };
@@ -136,7 +142,7 @@ export const generateOrgan = (notesList) => {
             synthStart = true;
         },
         notes,
-        "1m"
+        "2m"
     );
 
 

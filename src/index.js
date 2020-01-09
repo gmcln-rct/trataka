@@ -54,5 +54,14 @@ window.addEventListener("DOMContentLoaded", () => {
         };
 
 
-
 });
+
+// window.addEventListener("DOMContentLoaded", () => {
+//     document.getElementById('mute-button').onclick = () => {
+//         e.preventDefault();
+//         muteOrgan();
+//     }
+
+
+
+// });
