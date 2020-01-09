@@ -136,10 +136,8 @@ export const generateOrgan = (notesList) => {
             synthStart = true;
         },
         notes,
-        "1n"
+        "1m"
     );
-
-
 
 
     synthPart1.humanize = true;
