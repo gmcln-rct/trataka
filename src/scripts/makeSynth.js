@@ -3,31 +3,42 @@ import Tone from 'tone';
 // SETS UP SYNTHESIZER FOR LOOP
 
 export const makeSynth = () => {
+    let envelope = {
+        attack: 1.5,
+        release: 4,
+        sustain: 5,
+        releaseCurve: 'linear'
+    };
+    let filterEnvelope = {
+        baseFrequency: 200,
+        octaves: 2,
+        attack: 0,
+        decay: 0,
+        release: 2000
+    };
 
-    let vibrato = new Tone.Vibrato(10, 10);
+    let tremolo = new Tone.Tremolo(20, 3);
     
     return new Tone.PolySynth({
-        harmonicity: 10,
-        resonance: 1600,
+        harmonicity: 2,
+        resonance: 800,
         volume: -19,
         voice0: {
-            oscillator: {   frequency: 55,
-                            type: 'sine',
-                            phase: 180 },
-
+            oscillator: { type: 'cosine' },
+            envelope,
+            filterEnvelope
         },
         voice1: {
-            oscillator: {
-                frequency: 110,
-                type: 'cosine' },
-
+            oscillator: { type: 'cosine' },
+            envelope,
+            filterEnvelope
         },
-        voice1: {
-            oscillator: {
-                frequency: 440,
-                type: 'cosine'
-            },
+        voice2: {
+            oscillator: { type: 'bounce' },
+            envelope,
+            filterEnvelope
+        },
 
-        }
-    }).connect(vibrato);
+
+    }).connect(tremolo);
 }
