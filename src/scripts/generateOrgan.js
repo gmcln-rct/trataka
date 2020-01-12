@@ -176,17 +176,24 @@ export const generateOrgan = (notesList) => {
     const fftCanvas = document.getElementById("viz-canvas");
     const fftContext = fftCanvas.getContext("2d");
 
+    //size the canvases
+    function sizeCanvases() {
+        canvasWidth = fftCanvas.offsetWidth;
+        canvasHeight = fftCanvas.offsetHeight;
+        fftContext.canvas.width = canvasWidth;
+        fftContext.canvas.height = canvasHeight;
+    }
 
     // drawing the FFT
     function drawFFT(values) {
         fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
         let x, y, barWidth, val;
         for (let i = 0, len = values.length; i < len - 1; i++) {
-            barWidth = canvasWidth / len;
+            barWidth = (canvasWidth / len) / 2;
             x = barWidth * i;
             
             val = Math.abs(values[i] / 255);
-            y = val * canvasHeight;
+            y = (val * canvasHeight)/10;
             fftContext.fillStyle = "rgba(255, 255, 204, " + val + ")";
 
             // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
@@ -194,14 +201,7 @@ export const generateOrgan = (notesList) => {
         }
     }
 
-    //size the canvases
-    function sizeCanvases() {
-        canvasWidth = fftCanvas.offsetWidth;
-        canvasHeight = fftCanvas.offsetHeight;
-        fftContext.canvas.width = canvasWidth;
-        fftContext.canvas.height = canvasHeight;
 
-    }
 
     function loop() {
         requestAnimationFrame(loop);
