@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded", () => {
             stopOrgan();
 
             elem.setAttribute('class', 'play-button');
-            elem.value = "Play";
+            elem.value = "Make Flame";
             // Stop Transport
         } else {
             StartAudioContext(Tone.context, '#select-button')
@@ -56,7 +56,7 @@ window.addEventListener("DOMContentLoaded", () => {
                             }
                         )
                         .then( () => {
-                            elem.value = "Stop";
+                            elem.value = "Extinguish Flame";
                             elem.setAttribute('class', 'stop-button');
                         });
                     })

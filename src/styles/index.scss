@@ -198,21 +198,19 @@ body h1 {
     width: 27rem;
 }
 
-#select-button, #stop-button {
+#select-button {
     width: 5rem;
     height: 5rem;
-    margin: 1rem;
     padding: 2rem;
 
-    color: white;
+    color: black;
 
     font-size: 1.2em;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-align: center;
 
-    border-color:#135183;
-    border-radius: 50%;
+    border-radius: 10px;
 
     opacity: 0.8;
 
@@ -220,7 +218,7 @@ body h1 {
 }
 
 .play-button {
-    background-color: rgba(124,0,0,0.9);
+    background-color: rgba(255,240,140,0.9);
 }
 
 .stop-button {
@@ -228,7 +226,7 @@ body h1 {
     transition: 0.4s;
 }
 .play-button:hover, .stop-button:hover {
-    color: #135183;
+    color: #FFC619;
     border: 1px solid white;
 }
 
@@ -576,7 +574,6 @@ i {
     }
 
     .organ-buttons  {
-
         width: 23rem;
     }
 }
