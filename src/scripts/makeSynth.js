@@ -4,7 +4,7 @@ import Tone from 'tone';
 
 export const makeSynth = () => {
     let envelope = {
-        attack: 1.5,
+        attack: 3,
         release: 4,
         sustain: 5,
         releaseCurve: 'linear'
