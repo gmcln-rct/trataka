@@ -1,6 +1,6 @@
 import Tone from 'tone';
 
-import {synthPart1} from './generateOrgan';
+import {synthPart1} from './generateSoundscape';
 
 
 // let synthPart1, synthPart2;

@@ -2,7 +2,7 @@ import "./styles/index.scss";
 
 import { ydayCurrents } from './scripts/fetchCurrentsData';
 import { setUpSounds } from './scripts/setUpSounds';
-import { generateOrgan, stopOrgan, _isPlaying } from './scripts/generateOrgan';
+import { generateSoundscape, stopOrgan, _isPlaying } from './scripts/generateSoundscape';
 import StartAudioContext from 'startaudiocontext';
 
 let tideObjAlt = {
@@ -29,18 +29,17 @@ let tideObjAlt = {
 window.addEventListener("DOMContentLoaded", () => {
     let result, notesList, elem;
 
-    let selection = document.getElementById('station_id');
 
     elem = document.getElementById('select-button');
 
-    // StartAudioContext(Tone.context, 'select-button');
+
 
     elem.onclick = function (e) {
         e.preventDefault();
-        result = selection.value;
+
         if (_isPlaying) {
             stopOrgan();
-            selection.selectedIndex = 0;
+
             elem.setAttribute('class', 'play-button');
             elem.value = "Play";
             // Stop Transport
@@ -53,7 +52,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                 // console.log("Tide Obj: ", tideObj);
                                 console.log("Tide Obj Alt ", tideObjAlt);
                                 notesList = setUpSounds(tideObjAlt);
-                                generateOrgan(notesList);
+                                generateSoundscape(notesList);
                             }
                         )
                         .then( () => {

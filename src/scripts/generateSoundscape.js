@@ -51,7 +51,7 @@ export const stopOrgan = () => {
     }
 };
 
-export const generateOrgan = (notesList) => {
+export const generateSoundscape = (notesList) => {
     
     const EQUALIZER_CENTER_FREQUENCIES = [
         125, 160, 200, 250, 315, 400, 500, 630, 800, 1000, 1250,
