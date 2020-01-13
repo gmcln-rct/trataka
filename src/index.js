@@ -42,7 +42,7 @@ window.addEventListener("DOMContentLoaded", () => {
             stopOrgan();
             selection.selectedIndex = 0;
             elem.setAttribute('class', 'play-button');
-            elem.value = "Play Organ";
+            elem.value = "Play";
             // Stop Transport
         } else {
             StartAudioContext(Tone.context, '#select-button')
@@ -57,7 +57,7 @@ window.addEventListener("DOMContentLoaded", () => {
                             }
                         )
                         .then( () => {
-                            elem.value = "Stop Organ";
+                            elem.value = "Stop";
                             elem.setAttribute('class', 'stop-button');
                         });
                     })

@@ -176,6 +176,8 @@ export const generateOrgan = (notesList) => {
     const fftCanvas = document.getElementById("viz-canvas");
     const fftContext = fftCanvas.getContext("2d");
 
+    
+
     //size the canvases
     function sizeCanvases() {
         canvasWidth = fftCanvas.offsetWidth;
@@ -189,18 +191,18 @@ export const generateOrgan = (notesList) => {
         fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
         let x, y, barWidth, val;
         for (let i = 0, len = values.length; i < len - 1; i++) {
-            barWidth = (canvasWidth / len) / 2;
+            barWidth = (canvasWidth / len) / 20;
             x = barWidth * i;
             
-            val = Math.abs(values[i] / 255);
+            // val = Math.abs(values[i] / 255);
+            val = Math.random(1) + 0.7;
             y = (val * canvasHeight)/10;
-            fftContext.fillStyle = "rgba(255, 255, 204, " + val + ")";
+            fftContext.fillStyle = "rgba(100, 75, 0, " + val + ")";
 
             // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
             fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
         }
     }
-
 
 
     function loop() {
