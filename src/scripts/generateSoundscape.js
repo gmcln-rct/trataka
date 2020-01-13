@@ -164,6 +164,7 @@ export const generateSoundscape = (notesList) => {
     // VISUALIZER 
     // Currently just doing FFT
 
+
     let fftNum = 4096;
     const fft = new Tone.Analyser("fft", fftNum);
     const waveform = new Tone.Analyser("waveform", 1024);
@@ -176,7 +177,37 @@ export const generateSoundscape = (notesList) => {
     const fftCanvas = document.getElementById("viz-canvas");
     const fftContext = fftCanvas.getContext("2d");
 
-    
+
+
+    // drawing the FFT
+    function drawFFT(values) {
+        fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
+        let x, y, barWidth, val;
+
+        let testLength = values.length;
+        let testHalf = testLength / 2;
+        let testRand;
+
+        for (let i = 0, len = values.length; i < len - 1; i++) {
+            barWidth = canvasWidth / len / 10;
+            x = barWidth * i;
+
+            val = Math.abs(values[i] / 255);
+
+            testRand = Math.floor(Math.random() * 50) + 100;
+
+            if (i > testHalf) { 
+                y = (val * canvasHeight) * (i / testLength);
+            } else {
+                y = (val * canvasHeight) / 2;
+            }
+            
+            fftContext.fillStyle = "rgba(255, 240, " + testRand + ", " + val + ")";
+
+            // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
+            fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
+        }
+    }
 
     //size the canvases
     function sizeCanvases() {
@@ -184,52 +215,26 @@ export const generateSoundscape = (notesList) => {
         canvasHeight = fftCanvas.offsetHeight;
         fftContext.canvas.width = canvasWidth;
         fftContext.canvas.height = canvasHeight;
+
     }
-
-    // drawing the FFT
-    function drawFFT(values) {
-        fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
-        let x, y, barWidth, val;
-        let testAdj = values.length;
-        for (let i = 0, len = values.length; i < len - 1; i++) {
-            barWidth = (canvasWidth / len) / 10;
-            x = barWidth * i;
-            
-            // val = Math.abs(values[i] / 255);
-            val = Math.random(1) + 0.7;
-
-            // y = (val * canvasHeight)/10;
-
-            if ((i > (testAdj / 4)) && (i < (testAdj / 2))) {
-                y = (val * canvasHeight) / 5;
-            } else {
-                y = (val * canvasHeight) / 10;
-            }
-            fftContext.fillStyle = "rgb(100, 75, 0)";
-
-            // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
-            fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
-        }
-    }
-
 
     function loop() {
         requestAnimationFrame(loop);
-            //get the fft data and draw it
-            drawFFT(fft.getValue());
-            // console.log(fft.getValue());
+        //get the fft data and draw it
+        drawFFT(fft.getValue());
+        // console.log(fft.getValue());
     }
 
- 
-    let synthInterval = setInterval( () => {
-            if (synthStart) {
-                sizeCanvases();
-                loop();
-                clearInterval(synthInterval);
-            }
-        }, 10);
 
-    //   END VISUALIZATION  
+    let synthInterval = setInterval(() => {
+        if (synthStart) {
+            sizeCanvases();
+            loop();
+            clearInterval(synthInterval);
+        }
+    }, 10);
+
+
     Tone.BufferSource.prototype.start = function (time, offset, duration, gain) {
         // Prevent buffer playback if we have exceeded max # buffers playing
         // (or if there's no volume... what's the point?
