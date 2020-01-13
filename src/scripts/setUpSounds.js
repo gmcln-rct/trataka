@@ -27,10 +27,10 @@ export const setUpSounds = (tideObj) => {
         //     notesList.push([null]);
         // }
         if (i % 5 === 0) {
-            notesList.push("F1");
+            notesList.push("F4");
         }
         if (i % 15 === 0) {
-            notesList.push("G2");
+            notesList.push("G4");
         }
 
 

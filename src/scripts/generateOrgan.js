@@ -125,7 +125,7 @@ export const generateOrgan = (notesList) => {
     const synthPart1 = new Tone.Sequence(
         function (time, note) {
             event.humanize = true;
-            leftSynth.triggerAttackRelease(note, '5:0', makeTiming());
+            leftSynth.triggerAttackRelease(note, '5', makeTiming());
             synthStart = true;
         },
         notes,
@@ -139,7 +139,7 @@ export const generateOrgan = (notesList) => {
         function (time, note) {
 
             event.humanize = true;
-            rightSynth.triggerAttackRelease(note, '1:1', makeTiming());
+            rightSynth.triggerAttackRelease(note, '10', makeTiming());
             synthStart = true;
 
         },

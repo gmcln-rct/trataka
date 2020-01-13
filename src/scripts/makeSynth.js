@@ -24,17 +24,17 @@ export const makeSynth = () => {
         resonance: 800,
         volume: -19,
         voice0: {
-            oscillator: { type: 'cosine' },
+            oscillator: { type: 'sine' },
             envelope,
             filterEnvelope
         },
         voice1: {
-            oscillator: { type: 'cosine' },
+            oscillator: { type: 'sine' },
             envelope,
             filterEnvelope
         },
         voice2: {
-            oscillator: { type: 'bounce' },
+            oscillator: { type: 'sine' },
             envelope,
             filterEnvelope
         },
