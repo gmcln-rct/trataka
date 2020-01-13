@@ -190,14 +190,22 @@ export const generateSoundscape = (notesList) => {
     function drawFFT(values) {
         fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
         let x, y, barWidth, val;
+        let testAdj = values.length;
         for (let i = 0, len = values.length; i < len - 1; i++) {
-            barWidth = (canvasWidth / len) / 20;
+            barWidth = (canvasWidth / len) / 10;
             x = barWidth * i;
             
             // val = Math.abs(values[i] / 255);
             val = Math.random(1) + 0.7;
-            y = (val * canvasHeight)/10;
-            fftContext.fillStyle = "rgba(100, 75, 0, " + val + ")";
+
+            // y = (val * canvasHeight)/10;
+
+            if ((i > (testAdj / 4)) && (i < (testAdj / 2))) {
+                y = (val * canvasHeight) / 5;
+            } else {
+                y = (val * canvasHeight) / 10;
+            }
+            fftContext.fillStyle = "rgb(100, 75, 0)";
 
             // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
             fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
