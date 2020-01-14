@@ -301,7 +301,8 @@ input:visited, input:focus {
 
     z-index: 5;
 
-    filter: blur(0.5px);
+    filter: blur(0.7px);
+    transform: scaleY(0.6);
 }
 
 

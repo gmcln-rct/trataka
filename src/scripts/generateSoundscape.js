@@ -194,18 +194,18 @@ export const generateSoundscape = (notesList) => {
         let testBase;
 
         for (let i = 0, len = values.length; i < len - 1; i++) {
-            barWidth = canvasWidth / len / 20;
+            barWidth = canvasWidth / len / 30;
             x = barWidth * i;
 
             val = Math.abs(values[i] / 255);
 
             testRand = Math.floor(Math.random() * 50) + 100;
-            testBase = (val * canvasHeight) * 0.7;
+            testBase = (val * canvasHeight) ;
 
             if (i > testHalf) { 
-                y = (testBase / 2) +  ((testBase) * (1 - (i / testLength)));
+                y = (testBase / 2) +  ((testBase * 0.7) * (1 - (i / testLength)));
             } else {
-                y = (testBase/2) +   ((testBase)  * (i / testLength));
+                y = (testBase/2) +   ((testBase * 0.8)  * (i / testLength));
             }
             
             fftContext.fillStyle = "rgba(255, 240, " + testRand + ", " + val + ")";
@@ -217,8 +217,8 @@ export const generateSoundscape = (notesList) => {
             // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
             fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
             // blur slows it down
-            fftContext.shadowBlur = 0.5;
-            fftContext.shadowColor = "#FFC619";
+            // fftContext.shadowBlur = 0.5;
+            // fftContext.shadowColor = "#FFC619";
         }
     }
 
