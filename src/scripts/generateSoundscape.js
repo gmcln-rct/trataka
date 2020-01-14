@@ -71,7 +71,7 @@ export const generateSoundscape = (notesList) => {
         filter.type = 'lowpass';
         filter.frequency.value = frequency;
         filter.Q.value = 8.62;
-        filter.gain.value = 4.71;
+        filter.gain.value = 4.71;   
         return filter;
     });
 

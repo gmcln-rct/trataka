@@ -9,6 +9,13 @@ export const makeSynth = () => {
         sustain: 5,
         releaseCurve: 'linear'
     };
+
+    let envelope1 = {
+        attack: 3,
+        release: 4,
+        sustain: 10,
+        releaseCurve: 'linear'
+    };
     let filterEnvelope = {
         baseFrequency: 200,
         octaves: 2,
@@ -17,19 +24,20 @@ export const makeSynth = () => {
         release: 2000
     };
 
+
     let tremolo = new Tone.Tremolo(20, 3);
     
     return new Tone.PolySynth({
         harmonicity: 2,
         resonance: 800,
-        volume: -19,
+        volume: -12,
         voice0: {
             oscillator: { type: 'sine' },
-            envelope,
+            envelope1,
             filterEnvelope
         },
         voice1: {
-            oscillator: { type: 'sine' },
+            oscillator: { type: 'fatsawtooth' },
             envelope,
             filterEnvelope
         },
