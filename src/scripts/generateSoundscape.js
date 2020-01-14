@@ -187,6 +187,7 @@ export const generateSoundscape = (notesList) => {
         let testLength = values.length;
         let testHalf = testLength / 2;
         let testRand;
+        let testBase;
 
         for (let i = 0, len = values.length; i < len - 1; i++) {
             barWidth = canvasWidth / len / 10;
@@ -195,11 +196,12 @@ export const generateSoundscape = (notesList) => {
             val = Math.abs(values[i] / 255);
 
             testRand = Math.floor(Math.random() * 50) + 100;
+            testBase = val * canvasHeight;
 
             if (i > testHalf) { 
-                y = (val * canvasHeight) * (i / testLength);
+                y = (testBase / 3) +  ((testBase) * (1 - (i / testLength)));
             } else {
-                y = (val * canvasHeight) / 2;
+                y = (testBase/3) +   ((val * canvasHeight)  * (i / testLength));
             }
             
             fftContext.fillStyle = "rgba(255, 240, " + testRand + ", " + val + ")";

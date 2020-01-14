@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded", () => {
             stopOrgan();
 
             elem.setAttribute('class', 'play-button');
-            elem.value = "Make Flame";
+            elem.value = "Start Flame";
             // Stop Transport
         } else {
             StartAudioContext(Tone.context, '#select-button')
