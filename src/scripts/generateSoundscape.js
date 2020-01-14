@@ -150,6 +150,7 @@ export const generateSoundscape = (notesList) => {
     );
 
 
+
     synthPart1.humanize = true;
     synthPart2.humanize = true;
 
@@ -162,8 +163,8 @@ export const generateSoundscape = (notesList) => {
     _isPlaying = true;
 
 
-// ------------------
-    // VISUALIZER 
+// --------------------------------------------------------
+    // VISUALIZER part of funciton
     // Currently just doing FFT
 
 
@@ -265,3 +266,5 @@ export const generateSoundscape = (notesList) => {
     };
     
 };
+
+// END GENERATE SOUNDSCAPE FUNCTION
