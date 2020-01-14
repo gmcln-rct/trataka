@@ -168,7 +168,8 @@ export const generateSoundscape = (notesList) => {
     // Currently just doing FFT
 
 
-    let fftNum = 4096;
+    // let fftNum = 4096;
+    let fftNum = 2048;
     const fft = new Tone.Analyser("fft", fftNum);
     const waveform = new Tone.Analyser("waveform", 1024);
 
@@ -199,24 +200,25 @@ export const generateSoundscape = (notesList) => {
             val = Math.abs(values[i] / 255);
 
             testRand = Math.floor(Math.random() * 50) + 100;
-            testBase = val * canvasHeight;
+            testBase = (val * canvasHeight) * 0.7;
 
             if (i > testHalf) { 
-                y = (testBase / 3) +  ((testBase) * (1 - (i / testLength)));
+                y = (testBase / 2) +  ((testBase) * (1 - (i / testLength)));
             } else {
-                y = (testBase/3) +   ((val * canvasHeight)  * (i / testLength));
+                y = (testBase/2) +   ((testBase)  * (i / testLength));
             }
             
             fftContext.fillStyle = "rgba(255, 240, " + testRand + ", " + val + ")";
-            var grd = fftContext.createRadialGradient(75, 50, 5, 90, 60, 100);
+            // var grd = fftContext.createRadialGradient(75, 50, 5, 90, 60, 100);
             // grd.addColorStop(0, "red");
             // grd.addColorStop(1, "yellow");
             // fftContext.fillStyle = grd;
 
             // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
             fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
-            // fftContext.shadowBlur = 5;
-            // fftContext.shadowColor = "orange";
+            // blur slows it down
+            fftContext.shadowBlur = 0.5;
+            fftContext.shadowColor = "#FFC619";
         }
     }
 
@@ -226,7 +228,6 @@ export const generateSoundscape = (notesList) => {
         canvasHeight = fftCanvas.offsetHeight;
         fftContext.canvas.width = canvasWidth;
         fftContext.canvas.height = canvasHeight;
-
     }
 
     function loop() {
