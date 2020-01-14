@@ -190,7 +190,7 @@ export const generateSoundscape = (notesList) => {
         let testBase;
 
         for (let i = 0, len = values.length; i < len - 1; i++) {
-            barWidth = canvasWidth / len / 10;
+            barWidth = canvasWidth / len / 20;
             x = barWidth * i;
 
             val = Math.abs(values[i] / 255);
@@ -205,9 +205,15 @@ export const generateSoundscape = (notesList) => {
             }
             
             fftContext.fillStyle = "rgba(255, 240, " + testRand + ", " + val + ")";
+            var grd = fftContext.createRadialGradient(75, 50, 5, 90, 60, 100);
+            // grd.addColorStop(0, "red");
+            // grd.addColorStop(1, "yellow");
+            // fftContext.fillStyle = grd;
 
             // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
             fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
+            // fftContext.shadowBlur = 5;
+            // fftContext.shadowColor = "orange";
         }
     }
 
