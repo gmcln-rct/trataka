@@ -70,7 +70,7 @@ export const generateSoundscape = (notesList) => {
         let filter = Tone.context.createBiquadFilter();
         filter.type = 'lowpass';
         filter.frequency.value = frequency;
-        filter.Q.value = 4.31;
+        filter.Q.value = 8.62;
         filter.gain.value = 4.71;
         return filter;
     });
@@ -79,8 +79,8 @@ export const generateSoundscape = (notesList) => {
     delay = Tone.context.createDelay(11.0);
     delayFade = Tone.context.createGain();
 
-    delay.delayTime.value = 4.0;
-    delayFade.gain.value = 0.75;
+    delay.delayTime.value = 8.0;
+    delayFade.gain.value = 0.42;
 
     leftSynth.connect(leftPanner);
     rightSynth.connect(rightPanner);
@@ -107,12 +107,14 @@ export const generateSoundscape = (notesList) => {
     Tone.Transport.bpm.value = 100;
 
     // Create an array of notes to be played
-    const timing = ['+0:2', '+6:0', '+11:2','+15:0', '+5.0', '+19:4:2', '+19:3:0'];
+    // const timing = ['+0:2', '+6:0', '+11:2','+15:0', '+5.0', '+19:4:2', '+19:3:0'];
+    const timing = ['+11:2', '+15:0', '+5.0', '+19:4:2', '+19:3:0'];
+
 
     function makeTiming() {
         let timeIndex;
         let indivTiming;
-        timeIndex = Math.random(timing.length);
+        timeIndex = Math.random() * timing.length;
         indivTiming = timing[timeIndex];
         return indivTiming;
     }
@@ -125,7 +127,7 @@ export const generateSoundscape = (notesList) => {
     const synthPart1 = new Tone.Sequence(
         function (time, note) {
             event.humanize = true;
-            leftSynth.triggerAttackRelease(note, '5', makeTiming());
+            leftSynth.triggerAttackRelease(note, '10', makeTiming());
             synthStart = true;
         },
         notes,
@@ -139,7 +141,7 @@ export const generateSoundscape = (notesList) => {
         function (time, note) {
 
             event.humanize = true;
-            rightSynth.triggerAttackRelease(note, '10', makeTiming());
+            rightSynth.triggerAttackRelease(note, '15', makeTiming());
             synthStart = true;
 
         },
