@@ -125,24 +125,6 @@ body h1 {
 
 
 
-#station_id {
-    width: 28rem;
-    max-width:9 0%;
-    height: 2.2em;
-    margin-bottom: 5px;
-    padding: 10px 30px;
-
-    color: #084769;
-    background-color: #084769;
-
-    font-size: 1.5em;
-    font-weight: 700;
-    text-align: center;
-    border-color: #838f96;
-    border-radius: 10px;
-
-    opacity: 0.8;
-}
 
 
 
@@ -219,7 +201,7 @@ input:visited, input:focus {
 
 .intro-explanation {
     position: relative;
-    top: 5%;
+    top: 50%;
     width: 70%;
 
     margin-left: 15%;
@@ -514,13 +496,7 @@ i {
         transition: 0.4s;
     }
 
-    #station_id {
-        width: 25rem;
-        height: 2.2em;
 
-        font-size: 1.3em;
-        opacity: 0.8;
-    }
 
     .intro-explanation {
         width: 90%;
