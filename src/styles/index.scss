@@ -19,11 +19,10 @@ body{
     background-color: #5C0366;
     background-image:
         radial-gradient(
-        4em,
-                rgba(255, 0, 0, 0.3),
-        rgba(0,0,0,0.8
-        )
-
+        2rem,
+         rgba(255, 204, 51, 0.6),
+        rgba(4,0,0,0.9)
+    
         );
     overflow:hidden;
     height:100%;
@@ -34,7 +33,7 @@ body{
 
 @-webkit-keyframes red{
     0% {-webkit-transform: rotate(0deg) scale(1,1);}
-    50% {-webkit-transform: rotate(-180deg) scale(1.4,1.40);}
+    50% {-webkit-transform: rotate(-180deg) scale(1.6,1.6);}
     100% {-webkit-transform: rotate(-360deg) scale(1,1);}
 }
 @-moz-keyframes red{
@@ -52,8 +51,9 @@ body{
     height:100px;
     margin:-50px 0 0 -50px;
 
-    -webkit-animation:7s red 60s linear infinite;
-    -moz-animation:7s red 60s linear infinite;
+    -webkit-animation:14s red 60s linear infinite;
+    -moz-animation:14s red 60s linear infinite;
+
     background-image: -moz-radial-gradient(50% 50%, circle contain, rgba(222, 75, 218, .75), rgba(222, 75, 218, 0) 100%);
     background-image: -webkit-radial-gradient(50% 50%, circle contain, rgba(222, 75, 218, .75), rgba(222, 75, 218, 0) 100%);         
 }
@@ -104,7 +104,7 @@ body h1 {
 #viz-canvas {
     position: fixed;
     bottom: 20%;
-    left: 47%;
+    left: 47.5%;
     width: 100%;
     height: 100%;
 
@@ -185,7 +185,7 @@ body h1 {
 }
 
 .stop-button {
-    background-color: darkslategray;
+    background-color: #B38809;
     transition: 0.4s;
 }
 .play-button:hover, .stop-button:hover {
@@ -264,7 +264,7 @@ input:visited, input:focus {
     animation-iteration-count: 1;
 }
 
-.intro-explanation span#blue-text {
+.intro-explanation span#yellow-text {
     color: #FFD966;
     opacity: 100% !important;
     font-weight: 900;
@@ -350,7 +350,7 @@ input:visited, input:focus {
     height: 0%;
     width: 100%;
     
-    background-color: rgba(93,15,102, 0.9);
+    background-color: rgba(48, 8, 53, 0.9);
     overflow-y: hidden;
     transition: 0.5s;
 
@@ -364,8 +364,8 @@ input:visited, input:focus {
 
     margin-left: 20%;
     margin-right: 20%;
-
-    font-size: 2rem;
+        font-family: 'Hind', sans-serif;
+    font-size: 1.5rem;
     line-height: 2rem;
     text-align: center;
 
@@ -379,7 +379,7 @@ input:visited, input:focus {
 #about-overlay h1 {
     margin-bottom:2rem;
 
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Hind', sans-serif;
     font-size: 3em;
 
     color: #FFD966;
