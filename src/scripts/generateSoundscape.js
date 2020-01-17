@@ -243,8 +243,11 @@ export const generateSoundscape = (notesList) => {
             sizeCanvases();
             loop();
             clearInterval(synthInterval);
+        } else {
+            clearInterval(synthInterval);
+
         }
-    }, 10);
+    }, 5);
 
 
     Tone.BufferSource.prototype.start = function (time, offset, duration, gain) {
