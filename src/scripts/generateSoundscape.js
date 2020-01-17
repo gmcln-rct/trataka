@@ -24,6 +24,7 @@ export const stopOrgan = () => {
         // Stop Transport
         Tone.Transport.stop();
 
+
         // Stop Synths
         console.log("disconnecting synths....")
         leftSynth.disconnect();
