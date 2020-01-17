@@ -197,10 +197,10 @@ export const generateSoundscape = (notesList) => {
             barWidth = canvasWidth / len / 20;
             x = barWidth * i;
 
-            val = Math.abs(values[i] / 255);
+            val = Math.abs(values[i] / 255) + 0.3;
 
             testRand = Math.floor(Math.random() * 50) + 100;
-            testBase = (val * canvasHeight) * 0.7 ;
+            testBase = (val * canvasHeight) * 0.6;
 
             if (i > testHalf) { 
                 y = (testBase / 2) +  ((testBase * 0.4) * (1 - (i / testLength)));
