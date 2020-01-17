@@ -4,6 +4,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Sarala:400,700&display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700&display=swap');
+
 
 // ---------------------------------------------------------------------------------
 
@@ -23,18 +25,19 @@ body{
         );
     overflow:hidden;
     height:100%;
-    font-family: 'Questrial', sans-serif;
+
+    font-family: 'Quicksand', sans-serif;
     color:#555;
 }
 
 @-webkit-keyframes red{
     0% {-webkit-transform: rotate(0deg) scale(1,1);}
-    50% {-webkit-transform: rotate(-180deg) scale(1.7,1.80);}
+    50% {-webkit-transform: rotate(-180deg) scale(1.4,1.40);}
     100% {-webkit-transform: rotate(-360deg) scale(1,1);}
 }
 @-moz-keyframes red{
     0% {-moz-transform: rotate(0deg) scale(1,1);}
-    50% {-moz-transform: rotate(-180deg) scale(1.7,1.80);}
+    50% {-moz-transform: rotate(-180deg) scale(1.4,1.4);}
     100% {-moz-transform: rotate(0deg) scale(1,1);}
 }
 
@@ -70,12 +73,12 @@ body h1 {
     margin-bottom: 30px;
     margin-left: -50px;
 
-    font-family: 'Questrial', sans-serif;
+    font-family: 'Hind', sans-serif;
     font-size: 4em;
-    font-weight: 200;
+    font-weight: 600;
     text-align: center;
 
-    color: #FFC619;
+    color: white;
 
     opacity: 0.9;
      -webkit-animation: fadein 2s ease-in; /* Safari, Chrome and Opera > 12.1 */
@@ -88,7 +91,7 @@ body h1 {
 }
 
 #of-blue {
-    color: white;
+    color: #FFC619;
     opacity: 0.9;
 }
 
@@ -282,9 +285,9 @@ input:visited, input:focus {
     z-index: 5;
 
     filter: blur(0.7px);
-    animation: skew 3s infinite;
+    animation: skew 13s infinite;
     transform: skew(0deg, -1deg);
-    animation-direction: alternate;
+
     opacity: .7;
 }
 
