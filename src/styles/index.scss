@@ -135,9 +135,14 @@ body h1 {
   }
 }
 
-svg.svg-shape {
+.svg-shape {
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+
+
     filter: blur(3px);
-    z-index: 50;
+    z-index: 4;
 }
 
 

@@ -73,14 +73,24 @@
             
             <div class="loader"></div>
 
+            <div class="svg-shape">
+                <svg height="600" width="2400">
+                    <defs>
+                        <radialGradient id="myGradient">
+                            <stop offset="10%" stop-color="#190016" />
+                            <stop offset="95%" stop-color="#0F0010" />
+                        </radialGradient>
+                    </defs> 
+                    <ellipse cx="700" cy="400" rx="1200" ry="200" 
+                    style="fill: url('#myGradient')" />
+                
+                </svg>
 
+            </div>
 
 
             <footer>
-                <svg class="svg-shape" height="600" width="2500">
-                    <ellipse cx="700" cy="400" rx="1200" ry="200" style="fill:white" />
-                
-                </svg>
+
             </footer>
             
             <div id="about-overlay" class="overlay">
