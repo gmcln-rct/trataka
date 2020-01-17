@@ -17,7 +17,7 @@ export const makeSynth = () => {
         releaseCurve: 'linear'
     };
     let filterEnvelope = {
-        baseFrequency: 400,
+        baseFrequency: 200,
         octaves: 2,
         attack: 0,
         decay: 0,
