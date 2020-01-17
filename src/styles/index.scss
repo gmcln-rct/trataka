@@ -19,9 +19,11 @@ body{
     background-color: #5C0366;
     background-image:
         radial-gradient(
-        2em,
-        rgba(255,220,82,0.4),
-        rgba(2, 0, 0, 0.3)
+        4em,
+                rgba(255, 0, 0, 0.3),
+        rgba(0,0,0,0.8
+        )
+
         );
     overflow:hidden;
     height:100%;
@@ -95,6 +97,48 @@ body h1 {
     opacity: 0.9;
 }
 
+// ---------------------------------------------------------------------------------
+// VISUALIZER
+// ---------------------------------------------------------------------------------
+
+#viz-canvas {
+    position: fixed;
+    bottom: 20%;
+    left: 47%;
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+
+    filter: blur(0.7px);
+    animation: skew 13s infinite;
+    transform: skew(0deg, -1deg);
+
+    opacity: .7;
+}
+
+
+// SKEW ANIMATION
+
+@keyframes skew {
+  0% {
+    transform: skew(0deg, 0deg);
+  }
+  25% {
+    transform: skew(0deg, 2deg);
+  }
+50% {
+    transform: skew(0deg, 1deg);
+  }
+  100% {
+    transform: skew(0deg, 0deg);
+  }
+}
+
+svg.svg-shape {
+    filter: blur(3px);
+    z-index: 50;
+}
 
 
 // BUTTONS
@@ -271,43 +315,6 @@ input:visited, input:focus {
     z-index: 2;
 }
 
-// ---------------------------------------------------------------------------------
-// VISUALIZER
-// ---------------------------------------------------------------------------------
-
-#viz-canvas {
-    position: fixed;
-    bottom: 20%;
-    left: 47%;
-    width: 100%;
-    height: 100%;
-
-    z-index: 5;
-
-    filter: blur(0.7px);
-    animation: skew 13s infinite;
-    transform: skew(0deg, -1deg);
-
-    opacity: .7;
-}
-
-
-// SKEW ANIMATION
-
-@keyframes skew {
-  0% {
-    transform: skew(0deg, 0deg);
-  }
-  25% {
-    transform: skew(0deg, 2deg);
-  }
-50% {
-    transform: skew(0deg, 1deg);
-  }
-  100% {
-    transform: skew(0deg, 0deg);
-  }
-}
 
 
 // ---------------------------------------------------------------------------------
