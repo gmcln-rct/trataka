@@ -299,7 +299,7 @@ input:visited, input:focus {
 
     filter: blur(0.7px);
     animation: skew 3s infinite;
-    transform: skew(20deg);
+    transform: skew(0deg, -1deg);
     animation-direction: alternate;
     opacity: .7;
 }
@@ -312,10 +312,10 @@ input:visited, input:focus {
     transform: skew(0deg, 0deg);
   }
   25% {
-    transform: skew(1deg, 0deg);
+    transform: skew(0deg, 2deg);
   }
 50% {
-    transform: skew(2deg, 0deg);
+    transform: skew(0deg, 1deg);
   }
   100% {
     transform: skew(0deg, 0deg);
