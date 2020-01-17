@@ -59,12 +59,8 @@ body{
     height:100px;
     margin:-50px 0 0 -50px;
 }
-#blue{
-    -webkit-animation:blue 60s linear infinite;
-    -moz-animation:blue 60s linear infinite;
-    background-image: -webkit-radial-gradient(50% 50%, circle contain, rgba(86, 173, 223, .75), rgba(86, 173, 223, 0) 100%);
-    background-image: -moz-radial-gradient(50% 50%, circle contain, rgba(86, 173, 223, .75), rgba(86, 173, 223, 0) 100%);           
-}
+
+
 
 #red{
     -webkit-animation:7s red 70s linear infinite;
@@ -302,9 +298,29 @@ input:visited, input:focus {
     z-index: 5;
 
     filter: blur(0.7px);
-    transform: scaleY(0.6);
+    animation: skew 3s infinite;
+    transform: skew(20deg);
+    animation-direction: alternate;
+    opacity: .7;
 }
 
+
+// SKEW ANIMATION
+
+@keyframes skew {
+  0% {
+    transform: skew(0deg, 0deg);
+  }
+  25% {
+    transform: skew(1deg, 0deg);
+  }
+50% {
+    transform: skew(2deg, 0deg);
+  }
+  100% {
+    transform: skew(0deg, 0deg);
+  }
+}
 
 
 // ---------------------------------------------------------------------------------
