@@ -181,7 +181,7 @@ body h1 {
 }
 
 .play-button {
-    background-color: rgba(255,240,140,0.9);
+    background-color: rgba(255,217,102,0.9);
 }
 
 .stop-button {
@@ -265,7 +265,7 @@ input:visited, input:focus {
 }
 
 .intro-explanation span#blue-text {
-    color: #40D9FF;
+    color: #FFD966;
     opacity: 100% !important;
     font-weight: 900;
 }
@@ -334,6 +334,7 @@ input:visited, input:focus {
     cursor: pointer;
 
     z-index: 2;
+    opacity: 0.8;
 }
 
 #open-about-bg:hover {
@@ -349,8 +350,7 @@ input:visited, input:focus {
     height: 0%;
     width: 100%;
     
-    background-color: rgb(19,81,131);
-    background-color: rgba(19,81,131, 0.9);
+    background-color: rgba(93,15,102, 0.9);
     overflow-y: hidden;
     transition: 0.5s;
 
@@ -365,20 +365,24 @@ input:visited, input:focus {
     margin-left: 20%;
     margin-right: 20%;
 
-    font-size: 1.2em;
-    line-height: 1.2em;
+    font-size: 2rem;
+    line-height: 2rem;
     text-align: center;
 
     color: white;
 }
 
-#about-overlay h1 {
-    margin-bottom: 40px;
+.overlay-content > p {
+    padding: 1rem 0;
+}
 
-    font-family: 'Questrial', sans-serif;
+#about-overlay h1 {
+    margin-bottom:2rem;
+
+    font-family: 'Quicksand', sans-serif;
     font-size: 3em;
 
-    color: #24b4a4;
+    color: #FFD966;
 }
 
 #about-overlay a {
@@ -388,7 +392,7 @@ input:visited, input:focus {
     font-size: 1.3em;
     text-decoration: none;
 
-    color: #24b4a4;
+    color: #FFD966;
     transition: 0.3s;
 }
 
