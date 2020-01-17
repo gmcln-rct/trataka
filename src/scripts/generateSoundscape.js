@@ -104,7 +104,8 @@ export const generateSoundscape = (notesList) => {
     delayFade.connect(delay);
 
     // Slow Transport bpw Down
-    Tone.Transport.bpm.value = 100;
+    Tone.Transport.bpm.value = 50;
+    // Changed from 100
 
     // Create an array of notes to be played
     // const timing = ['+0:2', '+6:0', '+11:2','+15:0', '+5.0', '+19:4:2', '+19:3:0'];
@@ -180,7 +181,6 @@ export const generateSoundscape = (notesList) => {
 
     const fftCanvas = document.getElementById("viz-canvas");
     const fftContext = fftCanvas.getContext("2d");
-
 
 
     // drawing the FFT
