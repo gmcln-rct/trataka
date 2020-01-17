@@ -103,13 +103,17 @@ export const generateSoundscape = (notesList) => {
     delay.connect(delayFade);
     delayFade.connect(delay);
 
+    // let omniOsc = new Tone.OmniOscillator(440, "pulse");
+    // omniOsc.toMaster();
+    
+
     // Slow Transport bpw Down
     Tone.Transport.bpm.value = 50;
     // Changed from 100
 
     // Create an array of notes to be played
     // const timing = ['+0:2', '+6:0', '+11:2','+15:0', '+5.0', '+19:4:2', '+19:3:0'];
-    const timing = ['+11:2', '+15:0', '+5.0', '+19:4:2', '+19:3:0'];
+    const timing = ['+11:2', '+15:0', '+5:0', '+3:1', '+5:0', '+4:1','+19:4:2', '+19:3:0'];
 
 
     function makeTiming() {
@@ -197,7 +201,7 @@ export const generateSoundscape = (notesList) => {
             barWidth = canvasWidth / len / 20;
             x = barWidth * i;
 
-            val = Math.abs(values[i] / 255) + 0.3;
+            val = Math.abs(values[i] / 255) + 0.5;
 
             testRand = Math.floor(Math.random() * 50) + 100;
             testBase = (val * canvasHeight) * 0.6;
