@@ -35,7 +35,6 @@ export const setUpSounds = (tideObj) => {
 
 
     }
-    
     // noteList = allNotes;
     return notesList;
 };

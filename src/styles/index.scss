@@ -133,6 +133,8 @@ body h1 {
     display: flex;
     justify-content: center;
     align-content: flex-end;
+    
+
 
     filter: blur(3px);
     z-index: 2;
@@ -343,7 +345,7 @@ input:visited, input:focus {
     height: 0%;
     width: 100%;
     
-    background-color: rgba(48, 8, 53, 0.9);
+    background-color: rgba(48, 48, 48, 0.9);
     overflow-y: hidden;
     transition: 0.5s;
 

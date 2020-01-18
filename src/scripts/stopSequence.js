@@ -7,7 +7,7 @@ import {synthPart1} from './generateSoundscape';
 // let leftSynth, rightSynth, echo, delay, delayFade;
 // STOPPING ORGAN
 
-export const stopOrgan = () => {
+export const stopSoundscape = () => {
     // if (_isPlaying) {
         console.log("trying to stop...")
 

@@ -2,7 +2,7 @@ import "./styles/index.scss";
 
 import { ydayCurrents } from './scripts/fetchCurrentsData';
 import { setUpSounds } from './scripts/setUpSounds';
-import { generateSoundscape, stopOrgan, _isPlaying } from './scripts/generateSoundscape';
+import { generateSoundscape, stopSoundscape, _isPlaying } from './scripts/generateSoundscape';
 import StartAudioContext from 'startaudiocontext';
 
 let tideObjAlt = {
@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         if (_isPlaying) {
-            stopOrgan();
+            stopSoundscape();
 
             elem.setAttribute('class', 'play-button');
             elem.value = "Start Flame";

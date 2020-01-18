@@ -8,7 +8,9 @@ let leftSynth, rightSynth, echo, delay, delayFade;
 export let _isPlaying = false;
 // let _isPlaying;
 
-export const stopOrgan = () => {
+// ------------------------ STOP SEQUENCE ------------------------
+
+export const stopSoundscape = () => {
     if (_isPlaying) {
         console.log("trying to stop...")
 

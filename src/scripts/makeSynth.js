@@ -24,11 +24,10 @@ export const makeSynth = () => {
         release: 2000
     };
 
-
     let tremolo = new Tone.Tremolo(20, 3);
     
     return new Tone.PolySynth({
-        harmonicity: 2,
+        harmonicity: 10,
         resonance: 800,
         volume: -12,
         voice0: {
