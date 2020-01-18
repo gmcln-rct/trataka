@@ -202,12 +202,15 @@ export const generateSoundscape = (notesList) => {
         let flameColor, flameBase, flameOpac;
 
         for (let i = 0, len = values.length; i < len - 1; i++) {
-            barWidth = canvasWidth / len / 25;
+            // barWidth = canvasWidth / len / 25;
+            barWidth = (canvasWidth / len ) * 0.05;
+
             x = barWidth * i;
 
             val = Math.abs(values[i] / 255);
-            flameOpac = val + 0.3;
 
+            flameOpac = (val + 0.5) > 1? 1: (val + 0.5)
+            
             flameColor = Math.floor(Math.random() * 70) + 70;
             flameBase = (val * canvasHeight) * 0.8;
 
@@ -218,9 +221,11 @@ export const generateSoundscape = (notesList) => {
             }
             
             fftContext.fillStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
-            // var grd = fftContext.createRadialGradient(75, 50, 5, 90, 60, 100);
-            // grd.addColorStop(0, "red");
-            // grd.addColorStop(1, "yellow");
+            // // let grd = fftContext.createRadialGradient(75, 50, 5, 90, 60, 100);
+            // let fillColorStop = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
+            // let grd = fftContext.createLinearGradient(0, 0, 100, 2);
+            // grd.addColorStop(0, "#C7460B");
+            // grd.addColorStop(1, fillColorStop);
             // fftContext.fillStyle = grd;
 
             // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";

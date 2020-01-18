@@ -29,7 +29,7 @@ export const makeSynth = () => {
     return new Tone.PolySynth({
         harmonicity: 5,
         resonance: 800,
-        volume: -12,
+        volume: -18,
         voice0: {
             oscillator: { type: 'sine' },
             envelope1,
@@ -45,7 +45,6 @@ export const makeSynth = () => {
             envelope,
             filterEnvelope
         },
-
 
     }).connect(tremolo);
 }

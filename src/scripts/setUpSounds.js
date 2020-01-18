@@ -8,10 +8,10 @@ export const setUpSounds = (tideObj) => {
 
     let allNotes = ["A4", "b3", "b4", "b5", "C2", "C3", "C4", "C5","D2", "D3", "D4"];
     let allNotesLength = allNotes.length;
-
+    let noteListLength = 30;
     let noteRef, noteIdx, newNote;
 
-    for (let i = 0; i < allNotesLength; i++) {
+    for (let i = 0; i < noteListLength; i++) {
         // Establish location of note in array
         noteRef = Math.random();
         
@@ -22,7 +22,7 @@ export const setUpSounds = (tideObj) => {
         notesList.push(newNote);
 
         if (i % 5 === 0) {
-            notesList.push("F4");
+            notesList.push("D4");
         }
         if (i % 15 === 0) {
             notesList.push("G4");
