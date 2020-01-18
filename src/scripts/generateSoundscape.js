@@ -112,6 +112,9 @@ export const generateSoundscape = (notesList) => {
     Tone.Transport.bpm.value = 50;
     // Changed from 100
 
+
+    // ------------------------ CREATE SEQUENCES ------------------------
+
     // Create an array of notes to be played
     // const timing = ['+0:2', '+6:0', '+11:2','+15:0', '+5.0', '+19:4:2', '+19:3:0'];
     const timing = ['+11:2', '+15:0', '+5:0', '+3:1', '+5:0', '+4:1','+19:4:2', '+19:3:0'];
@@ -156,7 +159,6 @@ export const generateSoundscape = (notesList) => {
     );
 
 
-
     synthPart1.humanize = true;
     synthPart2.humanize = true;
 
@@ -169,8 +171,8 @@ export const generateSoundscape = (notesList) => {
     _isPlaying = true;
 
 
-// --------------------------------------------------------
-    // VISUALIZER part of funciton
+    // ------------------------ VISUALIZER ------------------------
+
     // Currently just doing FFT
 
 
@@ -198,7 +200,7 @@ export const generateSoundscape = (notesList) => {
         let flameColor, flameBase, flameOpac;
 
         for (let i = 0, len = values.length; i < len - 1; i++) {
-            barWidth = canvasWidth / len / 20;
+            barWidth = canvasWidth / len / 25;
             x = barWidth * i;
 
             val = Math.abs(values[i] / 255);

@@ -165,8 +165,9 @@ body h1 {
     border-radius: 10px;
 
     opacity: 0.8;
-
     z-index: 2;
+
+    cursor: pointer;
 }
 
 #select-button:hover {
@@ -272,7 +273,7 @@ input:visited, input:focus {
     margin-left: 15%;
     margin-right: 15%;
 
-    font-size: 1.5em;
+    font-size: 1em;
     font-style: italic;
     line-height: 1.2em;
     text-align: center;
@@ -280,7 +281,7 @@ input:visited, input:focus {
 
     opacity: 0;
     color: lightgrey;
-    z-index: 2;
+    z-index: 3;
 
     -webkit-animation-name: fadeInOut;
      -moz-animation-name: fadeInOut;
@@ -314,7 +315,6 @@ input:visited, input:focus {
 }
 
 
-
 // ---------------------------------------------------------------------------------
 // ABOUT OVERLAY
 // ---------------------------------------------------------------------------------
@@ -326,8 +326,8 @@ input:visited, input:focus {
     font-size: 2em;
     cursor: pointer;
 
-    z-index: 2;
-    opacity: 0.8;
+    z-index: 3;
+    opacity: 0.6;
 }
 
 #open-about-bg:hover {
@@ -499,8 +499,11 @@ i {
         transition: 0.4s;
     }
 
+    body h1 {
+        margin-top: 0.7em;
 
-
+        font-size: 2em;
+    }
     .intro-explanation {
         width: 90%;
         margin-left: 5%;
@@ -528,7 +531,6 @@ i {
         margin-top: 0.5em;
 
         font-size: 2em;
-
     }
 
     .intro-explanation {
