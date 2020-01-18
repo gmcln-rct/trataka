@@ -42,6 +42,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             elem.setAttribute('class', 'play-button');
             elem.value = "Start Flame";
+            document.getElementById('viz-canvas').setAttribute('class', 'viz-off');
             // Stop Transport
         } else {
             StartAudioContext(Tone.context, '#select-button')
@@ -58,6 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
                         .then( () => {
                             elem.value = "Extinguish Flame";
                             elem.setAttribute('class', 'stop-button');
+                            document.getElementById('viz-canvas').setAttribute('class', 'viz-on');
                         });
                     })
 

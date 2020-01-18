@@ -155,6 +155,21 @@ export const generateSoundscape = (notesList) => {
         let testHalf = testLength / 2;
         let flameColor, flameBase, flameOpac;
 
+        // draw circle
+        var centerX = 20;
+        var centerY = canvasHeight * 0.9;
+        var radius = canvasWidth / 2;
+
+
+        fftContext.fillStyle = "rgba(181,61,151,0.5)";
+        fftContext.beginPath();
+        fftContext.ellipse(centerX, centerY, 20, 45, 0, 0, 2 * Math.PI);
+        fftContext.fill();
+
+        fftContext.shadowBlur = 1;
+        fftContext.shadowColor = "rgba(255,255,255,0.5";
+
+
         for (let i = 0, len = values.length; i < len - 1; i++) {
             // barWidth = canvasWidth / len / 25;
             barWidth = (canvasWidth / len ) * 0.05;
@@ -187,7 +202,11 @@ export const generateSoundscape = (notesList) => {
             // blur slows it down
             // fftContext.shadowBlur = 0.5;
             // fftContext.shadowColor = "#FFC619";
+
         }
+
+
+
     }
 
     //size the canvases
@@ -205,15 +224,12 @@ export const generateSoundscape = (notesList) => {
         // console.log(fft.getValue());
     }
 
-
     let synthInterval = setInterval(() => {
         if (synthStart) {
             sizeCanvases();
             loop();
             clearInterval(synthInterval);
-        } else {
-            fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
-        }
+        } 
         
     }, 5);
 
@@ -239,13 +255,12 @@ export const generateSoundscape = (notesList) => {
     
 };
 
-// END GENERATE SOUNDSCAPE FUNCTION
+// END GENERATE SOUNDSCAPE + VISUALIZER FUNCTION
 
 // ------------------------ STOP SEQUENCE ------------------------
 
 export const stopSoundscape = () => {
     if (_isPlaying) {
-        cancelAnimationFrame();
         console.log("trying to stop...")
 
         synthPart1 = new Tone.Sequence();

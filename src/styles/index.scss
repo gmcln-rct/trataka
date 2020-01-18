@@ -106,12 +106,21 @@ body h1 {
     opacity: .7;
 
     filter: blur(0.7px);
-
-
-
       animation: move 3s infinite, move-left 3s infinite blink 4s infinite;
     transform-origin: 50% 90%;
 
+}
+
+.viz-on {
+
+
+
+}
+
+.viz-off {
+    background-color: pink;
+
+    transition: 0.4s;
 }
 
 
