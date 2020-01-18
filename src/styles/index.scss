@@ -113,13 +113,13 @@ body h1 {
 
 .viz-on {
 
-
+    display: initial;
 
 }
 
 .viz-off {
-    background-color: pink;
-
+    
+    display: none;
     transition: 0.4s;
 }
 

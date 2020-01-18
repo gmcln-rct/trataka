@@ -155,19 +155,8 @@ export const generateSoundscape = (notesList) => {
         let testHalf = testLength / 2;
         let flameColor, flameBase, flameOpac;
 
-        // draw circle
-        var centerX = 20;
-        var centerY = canvasHeight * 0.9;
-        var radius = canvasWidth / 2;
-
-
-        fftContext.fillStyle = "rgba(181,61,151,0.5)";
-        fftContext.beginPath();
-        fftContext.ellipse(centerX, centerY, 20, 45, 0, 0, 2 * Math.PI);
-        fftContext.fill();
-
-        fftContext.shadowBlur = 1;
-        fftContext.shadowColor = "rgba(255,255,255,0.5";
+        fftContext.shadowBlur = 0.4;
+        fftContext.shadowColor = "rgba(255, 198, 25, 0.5";
 
 
         for (let i = 0, len = values.length; i < len - 1; i++) {
@@ -202,10 +191,7 @@ export const generateSoundscape = (notesList) => {
             // blur slows it down
             // fftContext.shadowBlur = 0.5;
             // fftContext.shadowColor = "#FFC619";
-
         }
-
-
 
     }
 
