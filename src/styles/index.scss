@@ -106,8 +106,10 @@ body h1 {
     opacity: .7;
 
     filter: blur(0.7px);
-    animation: skew 13s infinite;
-    transform: skew(0deg, -1deg);
+
+
+      animation: move 3s infinite, move-left 3s infinite;
+  transform-origin: 50% 90%;
 
 }
 
@@ -547,4 +549,30 @@ i {
     top: 15px;
     right: 35px;
   }
+}
+
+
+// FLAME ANIMATION
+
+@keyframes move{
+  0%{ transform: skewX(2deg) skewY(5deg)}
+  50%{ transform: skewX(-2deg) skewY(-0deg)}
+  100%{ transform: skewX(2deg) skewY(5deg)}
+}
+@keyframes move-left{
+  50%{transform: skewX(3deg);}
+}
+@keyframes flame-up{
+  50% { box-shadow:
+      0 0px 0px 3px white,
+      0 -38px 1px 2px white, 
+      0 -41px 2px 3px gold, 
+      0 -50px 5px 4px orange,  //orange top
+      0 0px 150px 10px orange, //orange global
+      0 -10px 2px 4px white,
+      0 -5px 3px 3px white;
+  }
+}
+@keyframes blink{
+  50% {opacity: 0.95;}
 }
