@@ -103,30 +103,30 @@ body h1 {
     height: 100%;
 
     z-index: 1;
+    opacity: .7;
 
     filter: blur(0.7px);
     animation: skew 13s infinite;
     transform: skew(0deg, -1deg);
 
-    opacity: .7;
 }
 
 
 // SKEW ANIMATION
 
 @keyframes skew {
-  0% {
-    transform: skew(0deg, 0deg);
-  }
-  25% {
-    transform: skew(0.5deg, 4deg);
-  }
-50% {
-    transform: skew(1deg, 1deg);
-  }
-  100% {
-    transform: skew(0deg, 0deg);
-  }
+    0% {
+        transform: skew(0deg, 0deg);
+    }
+    25% {
+        transform: skew(0.5deg, 4deg);
+    }
+    50% {
+        transform: skew(1deg, 1deg);
+    }
+    100% {
+        transform: skew(0deg, 0deg);
+    }
 }
 
 .svg-shape {
