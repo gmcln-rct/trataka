@@ -8,51 +8,7 @@ let leftSynth, rightSynth, echo, delay, delayFade;
 export let _isPlaying = false;
 // let _isPlaying;
 
-// ------------------------ STOP SEQUENCE ------------------------
 
-export const stopSoundscape = () => {
-    if (_isPlaying) {
-        console.log("trying to stop...")
-
-        synthPart1 = new Tone.Sequence();
-        synthPart2 = new Tone.Sequence();
- 
-        synthPart1.removeAll();
-        synthPart1.stop();
-
-        synthPart2.removeAll();
-        synthPart2.stop();
-
-        // Stop Transport
-        Tone.Transport.stop();
-
-
-        // Stop Synths
-        console.log("disconnecting synths....")
-        leftSynth.disconnect();
-        rightSynth.disconnect();
-
-        console.log("disconnecting effects....")
-        echo.disconnect();
-        delay.disconnect();
-        delayFade.disconnect();
-
-        // debugger
-        console.log("transport state: " + Tone.Transport.state)
-        if (Tone.Transport.state !== "started") {
-            _isPlaying = false;
-            console.log("Transport stopped")
-        } else {
-            console.log("Transport didn't stop");
-        }
-
-        console.log('disposing....')
-        synthPart1.dispose();
-        synthPart2.dispose();
-        echo.dispose();
-        console.log("disposed")
-    }
-};
 
 export const generateSoundscape = (notesList) => {
     
@@ -177,9 +133,8 @@ export const generateSoundscape = (notesList) => {
 
     // Currently just doing FFT
 
-
-    let fftNum = 4096;
-    // let fftNum = 2048;
+    // let fftNum = 4096;
+    let fftNum = 2048;
     const fft = new Tone.Analyser("fft", fftNum);
     const waveform = new Tone.Analyser("waveform", 1024);
 
@@ -190,7 +145,6 @@ export const generateSoundscape = (notesList) => {
 
     const fftCanvas = document.getElementById("viz-canvas");
     const fftContext = fftCanvas.getContext("2d");
-
 
     // drawing the FFT
     function drawFFT(values) {
@@ -258,9 +212,9 @@ export const generateSoundscape = (notesList) => {
             loop();
             clearInterval(synthInterval);
         } else {
-            clearInterval(synthInterval);
-
+            fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
         }
+        
     }, 5);
 
 
@@ -286,3 +240,50 @@ export const generateSoundscape = (notesList) => {
 };
 
 // END GENERATE SOUNDSCAPE FUNCTION
+
+// ------------------------ STOP SEQUENCE ------------------------
+
+export const stopSoundscape = () => {
+    if (_isPlaying) {
+        cancelAnimationFrame();
+        console.log("trying to stop...")
+
+        synthPart1 = new Tone.Sequence();
+        synthPart2 = new Tone.Sequence();
+
+        synthPart1.removeAll();
+        synthPart1.stop();
+
+        synthPart2.removeAll();
+        synthPart2.stop();
+
+        // Stop Transport
+        Tone.Transport.stop();
+
+
+        // Stop Synths
+        console.log("disconnecting synths....")
+        leftSynth.disconnect();
+        rightSynth.disconnect();
+
+        console.log("disconnecting effects....")
+        echo.disconnect();
+        delay.disconnect();
+        delayFade.disconnect();
+
+        // debugger
+        console.log("transport state: " + Tone.Transport.state)
+        if (Tone.Transport.state !== "started") {
+            _isPlaying = false;
+            console.log("Transport stopped")
+        } else {
+            console.log("Transport didn't stop");
+        }
+
+        console.log('disposing....')
+        synthPart1.dispose();
+        synthPart2.dispose();
+        echo.dispose();
+        console.log("disposed")
+    }
+};
