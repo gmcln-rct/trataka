@@ -199,6 +199,7 @@ export const generateSoundscape = (notesList) => {
     function sizeCanvases() {
         canvasWidth = fftCanvas.offsetWidth;
         canvasHeight = fftCanvas.offsetHeight;
+
         fftContext.canvas.width = canvasWidth;
         fftContext.canvas.height = canvasHeight;
     }
