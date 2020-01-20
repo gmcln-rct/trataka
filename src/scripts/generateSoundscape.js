@@ -9,12 +9,15 @@ export let _isPlaying = false;
 // let _isPlaying;
 
 
-
 export const generateSoundscape = (notesList) => {
     
+    // const EQUALIZER_CENTER_FREQUENCIES = [
+    //     125, 160, 200, 250, 315, 400, 500, 630, 800, 1000, 1250,
+    //     1600, 2000, 2500, 3150, 4000, 5000
+    // ];
+
     const EQUALIZER_CENTER_FREQUENCIES = [
-        125, 160, 200, 250, 315, 400, 500, 630, 800, 1000, 1250,
-        1600, 2000, 2500, 3150, 4000, 5000
+        125, 160, 200, 250, 315, 400, 500, 630, 800, 1000
     ];
 
     leftSynth = makeSynth();
