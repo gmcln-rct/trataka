@@ -20,6 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             elem.setAttribute('class', 'play-button');
             elem.value = "Start Flame";
+            elem.innerHTML = 'Start Flame';
             document.getElementById('viz-canvas').setAttribute('class', 'viz-off');
             // Stop Transport
         } else {
@@ -35,6 +36,7 @@ window.addEventListener("DOMContentLoaded", () => {
                         .then( () => {
                             elem.value = "Extinguish Flame";
                             elem.setAttribute('class', 'stop-button');
+                            elem.innerHTML= 'Extinguish Flame';
                             document.getElementById('viz-canvas').setAttribute('class', 'viz-on');
                         });
                     })

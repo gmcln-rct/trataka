@@ -17,7 +17,7 @@ export const generateSoundscape = (notesList) => {
     // ];
 
     const EQUALIZER_CENTER_FREQUENCIES = [
-        125, 160, 200, 250, 315, 400, 500, 630, 800, 1000
+        125, 160, 200, 250, 315, 400, 500, 630, 800, 1000, 1250, 1600
     ];
 
     leftSynth = makeSynth();
@@ -161,6 +161,7 @@ export const generateSoundscape = (notesList) => {
         fftContext.shadowBlur = 0.4;
         fftContext.shadowColor = "rgba(255, 198, 25, 0.5";
 
+        fftContext.ellipse(100, 300, 50, 75, 0, 0, 2 * Math.PI);
 
         for (let i = 0, len = values.length; i < len - 1; i++) {
             // barWidth = canvasWidth / len / 25;
@@ -180,8 +181,10 @@ export const generateSoundscape = (notesList) => {
             } else {
                 y = (flameBase/2) +   ((flameBase * 0.4)  * (i / testLength));
             }
-            
-            fftContext.fillStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
+
+
+
+            // fftContext.fillStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
             // // let grd = fftContext.createRadialGradient(75, 50, 5, 90, 60, 100);
             // let fillColorStop = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
             // let grd = fftContext.createLinearGradient(0, 0, 100, 2);
@@ -190,11 +193,21 @@ export const generateSoundscape = (notesList) => {
             // fftContext.fillStyle = grd;
 
             // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
-            fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
+            // fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
+
+            fftContext.strokeStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
+            fftContext.beginPath();
+            fftContext.moveTo(x, canvasHeight - y);
+            fftContext.arcTo(x, canvasHeight - y, barWidth, canvasHeight, 100);
+            fftContext.lineTo(barWidth, canvasHeight);
+            fftContext.lineWidth = 1;
+            fftContext.stroke();
+
             // blur slows it down
             // fftContext.shadowBlur = 0.5;
             // fftContext.shadowColor = "#FFC619";
         }
+
 
     }
 
