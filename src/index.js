@@ -6,7 +6,6 @@ import { generateSoundscape, stopSoundscape, _isPlaying } from './scripts/genera
 import StartAudioContext from 'startaudiocontext';
 
 
-
 window.addEventListener("DOMContentLoaded", () => {
     let result, notesList, elem;
 
