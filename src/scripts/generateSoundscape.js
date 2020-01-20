@@ -151,7 +151,9 @@ export const generateSoundscape = (notesList) => {
 
     // drawing the FFT
     function drawFFT(values) {
+        // Clear canvas
         fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
+
         let x, y, barWidth, val;
 
         let testLength = values.length;
@@ -161,7 +163,7 @@ export const generateSoundscape = (notesList) => {
         fftContext.shadowBlur = 0.4;
         fftContext.shadowColor = "rgba(255, 198, 25, 0.5";
 
-        fftContext.ellipse(100, 300, 50, 75, 0, 0, 2 * Math.PI);
+        // fftContext.ellipse(100, 300, 50, 75, 0, 0, 2 * Math.PI);
 
         for (let i = 0, len = values.length; i < len - 1; i++) {
             // barWidth = canvasWidth / len / 25;
@@ -172,7 +174,6 @@ export const generateSoundscape = (notesList) => {
             val = Math.abs(values[i] / 255);
 
             flameOpac = (val + 0.5) > 1? 1: (val + 0.5)
-            
             flameColor = Math.floor(Math.random() * 70) + 70;
             flameBase = (val * canvasHeight) * 0.8;
 
@@ -181,8 +182,6 @@ export const generateSoundscape = (notesList) => {
             } else {
                 y = (flameBase/2) +   ((flameBase * 0.4)  * (i / testLength));
             }
-
-
 
             // fftContext.fillStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
             // // let grd = fftContext.createRadialGradient(75, 50, 5, 90, 60, 100);
@@ -195,10 +194,23 @@ export const generateSoundscape = (notesList) => {
             // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
             // fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
 
+            // let startingX = 113, startingY = 441, firstX = 61, firstY = 357, secondX = 64, secondY = 330, endingX = 128, endingY = 63;
+            let startingX, startingY, firstX, firstY, secondX, secondY, endingX, endingY;
+            startingX = x;
+            startingY = y;
+            firstX = x -50;
+            firstY = y - 90;
+            secondX = x - 45;
+            secondY = y = 85;
+            endingX = barWidth;
+            endingY = canvasHeight - y;
+            context.moveTo(startingX, startingY);
+            context.bezierCurveTo(firstX, firstY, secondX, secondY, endingX, endingY);
+
             fftContext.strokeStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
             fftContext.beginPath();
             fftContext.moveTo(x, canvasHeight - y);
-            fftContext.arcTo(x, canvasHeight - y, barWidth, canvasHeight, 100);
+            fftContext.arcTo(x, canvasHeight - y, barWidth, canvasHeight, 50);
             fftContext.lineTo(barWidth, canvasHeight);
             fftContext.lineWidth = 1;
             fftContext.stroke();
