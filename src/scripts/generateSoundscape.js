@@ -137,7 +137,7 @@ export const generateSoundscape = (notesList) => {
     // Currently just doing FFT
 
     // let fftNum = 4096;
-    let fftNum = 2048;
+    let fftNum = 1024;
     const fft = new Tone.Analyser("fft", fftNum);
     const waveform = new Tone.Analyser("waveform", 1024);
 
@@ -194,26 +194,42 @@ export const generateSoundscape = (notesList) => {
             // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
             // fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
 
-            // let startingX = 113, startingY = 441, firstX = 61, firstY = 357, secondX = 64, secondY = 330, endingX = 128, endingY = 63;
-            let startingX, startingY, firstX, firstY, secondX, secondY, endingX, endingY;
-            startingX = x;
-            startingY = y;
-            firstX = x -50;
-            firstY = y - 90;
-            secondX = x - 45;
-            secondY = y = 85;
-            endingX = barWidth;
-            endingY = canvasHeight - y;
-            context.moveTo(startingX, startingY);
-            context.bezierCurveTo(firstX, firstY, secondX, secondY, endingX, endingY);
+            // let startingX = 113, startingY = 441, firstX = 61, firstY = 357, secondX = 64, secondY = 330, endingX = 128, endingY = 63            fftContext.strokeStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
+            // fftContext.strokeStyle = "rgba(255, 240, " + flameColor + ", 1)";
+            // let startingX, startingY, firstX, firstY, secondX, secondY, endingX, endingY;
+            // startingX = x;
+            // startingY = canvasHeight;
+            // firstX = x -50;
+            // firstY = y - 90;
+            // secondX = x - 45;
+            // secondY = y = 85;
+            // endingX = startingX + 1;
+            // endingY = canvasHeight-y;
+            // fftContext.moveTo(startingX, startingY);
+            // fftContext.bezierCurveTo(firstX, firstY, secondX, secondY, endingX, endingY);
+            // fftContext.lineWidth = 5;
+            // fftContext.stroke();
 
-            fftContext.strokeStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
-            fftContext.beginPath();
-            fftContext.moveTo(x, canvasHeight - y);
-            fftContext.arcTo(x, canvasHeight - y, barWidth, canvasHeight, 50);
-            fftContext.lineTo(barWidth, canvasHeight);
-            fftContext.lineWidth = 1;
-            fftContext.stroke();
+            // fftContext.strokeStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
+            // fftContext.beginPath();
+            // fftContext.arcTo(x, canvasHeight - y, x+barWidth, y, 140);
+            // fftContext.lineTo(barWidth, canvasHeight);
+            // fftContext.lineWidth = 10;
+            // fftContext.stroke();
+
+            // Using Arc
+            // let startX, startY, startAngle, endAngle, radius;
+            // startX = x+50,
+            // startY = canvasHeight - y;
+            // radius = y / 2;
+            // startAngle = Math.PI ;
+            // endAngle = Math.PI * 1.5;
+            // fftContext.fillStyle = "white";
+            // fftContext.strokeStyle = "rgba(255, 240, " + flameColor + ", 1)";
+            // fftContext.beginPath();
+            // fftContext.arc(startX, startY, y/2, startAngle, endAngle, true);
+            // fftContext.stroke();
+            // fftContext.fill();
 
             // blur slows it down
             // fftContext.shadowBlur = 0.5;
