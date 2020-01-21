@@ -27,8 +27,8 @@ export const makeSynth = () => {
     let tremolo = new Tone.Tremolo(20, 3);
     
     return new Tone.PolySynth({
-        harmonicity: 5,
-        resonance: 800,
+        harmonicity: 4,
+        resonance: 400,
         volume: -18,
         voice0: {
             oscillator: { type: 'sine' },

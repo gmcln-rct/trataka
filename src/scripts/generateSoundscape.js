@@ -137,7 +137,7 @@ export const generateSoundscape = (notesList) => {
     // Currently just doing FFT
 
     // let fftNum = 4096;
-    let fftNum = 1024;
+    let fftNum = 2048;
     const fft = new Tone.Analyser("fft", fftNum);
     const waveform = new Tone.Analyser("waveform", 1024);
 
@@ -178,9 +178,9 @@ export const generateSoundscape = (notesList) => {
             flameBase = (val * canvasHeight) * 0.8;
 
             if (i > testHalf) { 
-                y = (flameBase / 2) +  ((flameBase * 0.4) * (1 - (i / testLength)));
+                y = (flameBase / 2) +  ((flameBase * 0.6) * (1 - (i / testLength)));
             } else {
-                y = (flameBase/2) +   ((flameBase * 0.4)  * (i / testLength));
+                y = (flameBase/2) +   ((flameBase * 0.6)  * (i / testLength));
             }
 
             // fftContext.fillStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
