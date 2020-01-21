@@ -188,8 +188,8 @@ export const generateSoundscape = (notesList) => {
 
             // let grd = fftContext.createRadialGradient(75, 50, 5, 90, 60, 100);
             // let fillColorStop = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
-            let grd = fftContext.createLinearGradient(x, 0, x, 100);
-            grd.addColorStop(0, "rgba(255, 240, " + flameColor + ")");
+            let grd = fftContext.createLinearGradient(x, canvasHeight, x, 200);
+            grd.addColorStop(0, "rgba(255, 240, " + flameColor + ", " + flameOpac + ")");
             grd.addColorStop(1, "red");
             fftContext.fillStyle = grd;
 
