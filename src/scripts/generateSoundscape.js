@@ -188,10 +188,10 @@ export const generateSoundscape = (notesList) => {
 
             // let grd = fftContext.createRadialGradient(75, 50, 5, 90, 60, 100);
             // let fillColorStop = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
-            let grd = fftContext.createLinearGradient(x, canvasHeight, x, 200);
+            let grd = fftContext.createLinearGradient(x, canvasHeight, x, 300);
             grd.addColorStop(0, "rgba(255, 240, " + flameColor + ", " + flameOpac + ")");
             // grd.addColorStop(1, "red");
-            grd.addColorStop(1, "rgba(255, 0, " + flameColor + ", " + flameOpac + ")");
+            grd.addColorStop(1, "rgba(255, 0, " + flameColor + ", 1)");
             fftContext.fillStyle = grd;
 
             fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
@@ -237,8 +237,8 @@ export const generateSoundscape = (notesList) => {
             // fftContext.fill();
 
             // blur slows it down
-            // fftContext.shadowBlur = 0.5;
-            // fftContext.shadowColor = "#FFC619";
+            fftContext.shadowBlur = 0.5;
+            fftContext.shadowColor = "#FFC619";
         }
 
 
