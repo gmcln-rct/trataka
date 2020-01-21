@@ -78,7 +78,7 @@ export const generateSoundscape = (notesList) => {
 
     // Create an array of notes to be played
     // const timing = ['+0:2', '+6:0', '+11:2','+15:0', '+5.0', '+19:4:2', '+19:3:0'];
-    const timing = ['+11:2', '+15:0', '+5:0', '+3:1', '+5:0', '+4:1','+19:4:2', '+19:3:0'];
+    const timing = ['+11:2', '+15:0', '+3:1', '+5:1', '+5:0','+4:1','+19:4:2', '+19:3:0'];
 
 
     function makeTiming() {
@@ -184,12 +184,16 @@ export const generateSoundscape = (notesList) => {
             }
 
             // fftContext.fillStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
-            // // let grd = fftContext.createRadialGradient(75, 50, 5, 90, 60, 100);
+            // fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
+
+            // let grd = fftContext.createRadialGradient(75, 50, 5, 90, 60, 100);
             // let fillColorStop = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
-            // let grd = fftContext.createLinearGradient(0, 0, 100, 2);
-            // grd.addColorStop(0, "#C7460B");
-            // grd.addColorStop(1, fillColorStop);
-            // fftContext.fillStyle = grd;
+            let grd = fftContext.createLinearGradient(x, 0, x, 100);
+            grd.addColorStop(0, "rgba(255, 240, " + flameColor + ")");
+            grd.addColorStop(1, "red");
+            fftContext.fillStyle = grd;
+
+            fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
 
             // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
             // fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
