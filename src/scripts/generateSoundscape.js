@@ -137,7 +137,7 @@ export const generateSoundscape = (notesList) => {
     // Currently just doing FFT
 
     // let fftNum = 4096;
-    let fftNum = 2048;
+    let fftNum = 1024;
     const fft = new Tone.Analyser("fft", fftNum);
     const waveform = new Tone.Analyser("waveform", 1024);
 
@@ -237,8 +237,8 @@ export const generateSoundscape = (notesList) => {
             // fftContext.fill();
 
             // blur slows it down
-            fftContext.shadowBlur = 0.5;
-            fftContext.shadowColor = "#FFC619";
+            // fftContext.shadowBlur = 0.5;
+            // fftContext.shadowColor = "#FFC619";
         }
 
 

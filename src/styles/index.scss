@@ -5,7 +5,6 @@
 
 // ---------------------------------------------------------------------------------
 
-
 * {
     margin: 0;
     padding: 0;
@@ -26,6 +25,8 @@ body{
     color:#555;
 }
 
+
+
 @-webkit-keyframes red{
     0% {-webkit-transform: rotate(0deg) scale(1,1);}
     50% {-webkit-transform: rotate(-180deg) scale(1.6,1.6);}
@@ -40,17 +41,19 @@ body{
 #red{
     z-index: -4;
     position:absolute;
-    top:50%;
-    left:50%;
-    width:100px;
-    height:100px;
-    margin:-50px 0 0 -50px;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin: -50px 0 0 -50px;
 
-    -webkit-animation:14s red 60s linear infinite;
-    -moz-animation:14s red 60s linear infinite;
+    -moz-animation:25s red 5s linear infinite;
+    -webkit-animation:25s red 5s linear infinite;
+    animation: 25s red 5s linear infinite;
 
-    background-image: -moz-radial-gradient(50% 50%, circle contain, rgba(222, 75, 218, .75), rgba(222, 75, 218, 0) 100%);
-    background-image: -webkit-radial-gradient(50% 50%, circle contain, rgba(222, 75, 218, .75), rgba(222, 75, 218, 0) 100%);         
+    background-image: -moz-radial-gradient(50% 50%, circle contain, rgba(248, 192, 0, .5), rgba(165, 138, 58, 0) 100%);
+    background-image: -webkit-radial-gradient(circle closest-side at 50% 50%, rgba(248, 192, 0, .5), rgba(255, 231, 158, 0) 100%);      
+    background-image: radial-gradient(circle closest-side at 50% 50%, rgba(248, 192, 0, .5), rgba(255, 231, 158, 0) 100%);         
 }
 
 
