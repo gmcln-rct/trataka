@@ -165,9 +165,9 @@ body h1 {
 
 // BUTTONS
 
-.organ-buttons  {
-display: flex;
-justify-content: center;
+.main-button  {
+    display: flex;
+    justify-content: center;
 
     margin: 0 auto;
 }
@@ -225,6 +225,11 @@ justify-content: center;
  
 input:visited, input:focus {
     outline: none;
+}
+
+button:active, button:focus {
+    outline: none;
+    border: none;
 }
 
 // EXPLANATION
@@ -554,7 +559,7 @@ i {
         opacity: 0 !important;
     }
 
-    .organ-buttons  {
+    .main-button  {
         width: 23rem;
     }
 }
