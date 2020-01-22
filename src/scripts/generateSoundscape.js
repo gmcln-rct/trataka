@@ -175,7 +175,7 @@ export const generateSoundscape = (notesList) => {
 
             flameOpac = (val + 0.5) > 1? 1: (val + 0.5)
             flameColor = Math.floor(Math.random() * 70) + 70;
-            flameBase = (val * canvasHeight) * 0.8;
+            flameBase = (val * canvasHeight) ;
 
             if (i > testHalf) { 
                 y = (flameBase / 2) +  ((flameBase * 0.6) * (1 - (i / testLength)));
@@ -186,8 +186,6 @@ export const generateSoundscape = (notesList) => {
             // fftContext.fillStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
             // fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
 
-            // let grd = fftContext.createRadialGradient(75, 50, 5, 90, 60, 100);
-            // let fillColorStop = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
             let grd = fftContext.createLinearGradient(x, canvasHeight, x, 300);
             grd.addColorStop(0, "rgba(255, 240, " + flameColor + ", " + flameOpac + ")");
             // grd.addColorStop(1, "red");
@@ -197,44 +195,9 @@ export const generateSoundscape = (notesList) => {
             fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
 
             // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
-            // fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
 
-            // let startingX = 113, startingY = 441, firstX = 61, firstY = 357, secondX = 64, secondY = 330, endingX = 128, endingY = 63            fftContext.strokeStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
-            // fftContext.strokeStyle = "rgba(255, 240, " + flameColor + ", 1)";
-            // let startingX, startingY, firstX, firstY, secondX, secondY, endingX, endingY;
-            // startingX = x;
-            // startingY = canvasHeight;
-            // firstX = x -50;
-            // firstY = y - 90;
-            // secondX = x - 45;
-            // secondY = y = 85;
-            // endingX = startingX + 1;
-            // endingY = canvasHeight-y;
-            // fftContext.moveTo(startingX, startingY);
-            // fftContext.bezierCurveTo(firstX, firstY, secondX, secondY, endingX, endingY);
-            // fftContext.lineWidth = 5;
-            // fftContext.stroke();
 
-            // fftContext.strokeStyle = "rgba(255, 240, " + flameColor + ", " + flameOpac + ")";
-            // fftContext.beginPath();
-            // fftContext.arcTo(x, canvasHeight - y, x+barWidth, y, 140);
-            // fftContext.lineTo(barWidth, canvasHeight);
-            // fftContext.lineWidth = 10;
-            // fftContext.stroke();
-
-            // Using Arc
-            // let startX, startY, startAngle, endAngle, radius;
-            // startX = x+50,
-            // startY = canvasHeight - y;
-            // radius = y / 2;
-            // startAngle = Math.PI ;
-            // endAngle = Math.PI * 1.5;
-            // fftContext.fillStyle = "white";
-            // fftContext.strokeStyle = "rgba(255, 240, " + flameColor + ", 1)";
-            // fftContext.beginPath();
-            // fftContext.arc(startX, startY, y/2, startAngle, endAngle, true);
-            // fftContext.stroke();
-            // fftContext.fill();
+ 
 
             // blur slows it down
             // fftContext.shadowBlur = 0.5;
