@@ -212,10 +212,13 @@ body h1 {
 }
 
 .play-button:hover {
+    color: #5C0366;
     background-color: #FFC619;
+    transition: 0.2s;
 }
 .stop-button:hover {
     background-color: #999;
+    transition: 0.2s;
 }
 
 .input-wrapper-play, .input-wrapper-stop {
@@ -331,17 +334,7 @@ span#yellow-text {
     animation-duration: 12s;
 }
 
-#footer-logo {
-    position: fixed;
-    bottom: 2rem;
-    left: 2rem;
-    width: 6rem;
-    height: auto;
 
-    opacity: 0.7;
-
-    z-index: 2;
-}
 
 
 // ---------------------------------------------------------------------------------
@@ -407,12 +400,9 @@ span#yellow-text {
 }
 
 #about-overlay a {
-
-
     color: #FFD966;
-
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 
@@ -461,20 +451,6 @@ i {
     font-size: 1.5em;
 }
 
-.altBackgroundShape {
-        width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    box-shadow:
-        inset 0 0 50px #fff,      /* inner white */
-        inset 20px 0 80px #f0f,   /* inner left magenta short */
-        inset -20px 0 80px #0ff,  /* inner right cyan short */
-        inset 20px 0 300px #f0f,  /* inner left magenta broad */
-        inset -20px 0 300px #0ff, /* inner right cyan broad */
-        0 0 50px #fff,            /* outer white */
-        -10px 0 80px #f0f,        /* outer left magenta */
-        10px 0 80px #0ff;         /* outer right cyan */
-}
 
 
 // ---------------------------------------------------------------------------------

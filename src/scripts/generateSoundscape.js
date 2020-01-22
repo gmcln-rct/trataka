@@ -137,7 +137,7 @@ export const generateSoundscape = (notesList) => {
     // Currently just doing FFT
 
     // let fftNum = 4096;
-    let fftNum = 1024;
+    let fftNum = 2048;
     const fft = new Tone.Analyser("fft", fftNum);
     const waveform = new Tone.Analyser("waveform", 1024);
 
