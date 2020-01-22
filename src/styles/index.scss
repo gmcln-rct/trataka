@@ -287,10 +287,10 @@ button:active, button:focus {
     animation-iteration-count: 1;
 }
 
-.intro-explanation span#yellow-text {
+span#yellow-text {
     color: #FFD966;
-    opacity: 100% !important;
-    font-weight: 900;
+
+    font-weight: 700;
 }
 
 .audio-explanation {
@@ -404,17 +404,14 @@ button:active, button:focus {
     font-family: 'Hind', sans-serif;
     font-size: 3em;
 
-    color: #FFD966;
 }
 
 #about-overlay a {
-    display: block;
-    padding: 8px;
 
-    font-size: 1.3em;
-    text-decoration: none;
 
     color: #FFD966;
+
+    text-decoration: none;
     transition: 0.3s;
 }
 
