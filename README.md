@@ -1,6 +1,8 @@
 ## **trataka | ephemeral Light**
 Immersive audio-visualization app for meditation and focus.
 
+![ephemeral Light Landing Page](https://sea-organ-seeds.s3.amazonaws.com/gifs/ephLightGif.gif "seaOrgan Landing Page")
+
 ### What It Does 
 
 This project uses the Tone.js JavaScript library to generate a unique soundscape each time the user clicks the "Start Flame" button.
