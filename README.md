@@ -1,7 +1,7 @@
 ## **trataka | ephemeral Light**
 Immersive audio-visualization app for meditation and focus.
 
-![ephemeral Light Landing Page](https://sea-organ-seeds.s3.amazonaws.com/gifs/ephLightGif2.gif)
+![ephemeral Light Landing Page](https://sea-organ-seeds.s3.amazonaws.com/gifs/ephLightGif3.gif "ephemeral Light Landing Page")
 
 ### What It Does 
 
