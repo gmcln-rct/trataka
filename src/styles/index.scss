@@ -25,20 +25,18 @@ body{
     color:#555;
 }
 
-
-
-@-webkit-keyframes red{
+@-webkit-keyframes expand{
     0% {-webkit-transform: rotate(0deg) scale(1,1);}
     50% {-webkit-transform: rotate(-180deg) scale(1.6,1.6);}
     100% {-webkit-transform: rotate(-360deg) scale(1,1);}
 }
-@-moz-keyframes red{
+@-moz-keyframes expand{
     0% {-moz-transform: rotate(0deg) scale(1,1);}
     50% {-moz-transform: rotate(-180deg) scale(1.4,1.4);}
     100% {-moz-transform: rotate(0deg) scale(1,1);}
 }
 
-#red{
+#expand{
     z-index: -4;
     position:absolute;
     top: 50%;
@@ -47,13 +45,13 @@ body{
     height: 100px;
     margin: -50px 0 0 -50px;
 
-    -moz-animation:25s red 5s linear infinite;
-    -webkit-animation:25s red 5s linear infinite;
-    animation: 25s red 5s linear infinite;
+    -moz-animation:25s expand 5s linear infinite;
+    -webkit-animation:25s expand 5s linear infinite;
+    animation: 25s expand 5s linear infinite;
 
-    background-image: -moz-radial-gradient(50% 50%, circle contain, rgba(248, 192, 0, .5), rgba(165, 138, 58, 0) 100%);
-    background-image: -webkit-radial-gradient(circle closest-side at 50% 50%, rgba(248, 192, 0, .5), rgba(255, 231, 158, 0) 100%);      
-    background-image: radial-gradient(circle closest-side at 50% 50%, rgba(248, 192, 0, .5), rgba(255, 231, 158, 0) 100%);         
+    background-image: -moz-radial-gradient(50% 50%, circle contain, rgba(248, 192, 0, 0.7), rgba(165, 138, 58, 0) 100%);
+    background-image: -webkit-radial-gradient(circle closest-side at 50% 50%, rgba(248, 192, 0, 0.7), rgba(255, 231, 158, 0) 100%);      
+    background-image: radial-gradient(circle closest-side at 50% 50%, rgba(248, 192, 0, 0.7), rgba(255, 231, 158, 0) 100%);         
 }
 
 
@@ -89,7 +87,7 @@ body h1 {
     z-index: 2;
 }
 
-#of-blue {
+#of-orange {
     color: #FFC619;
     opacity: 0.9;
 }
