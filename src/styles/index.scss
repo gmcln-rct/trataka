@@ -78,11 +78,11 @@ body h1 {
     color: white;
 
     opacity: 0.9;
-     -webkit-animation: fadein 2s ease-in; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s ease-in; /* Firefox < 16 */
-        -ms-animation: fadein 2s ease-in; /* Internet Explorer */
-         -o-animation: fadein 2s ease-in; /* Opera < 12.1 */
-            animation: fadein 2s ease-in;
+     -webkit-animation: fadeIn 2s ease-in; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeIn 2s ease-in; /* Firefox < 16 */
+        -ms-animation: fadeIn 2s ease-in; /* Internet Explorer */
+         -o-animation: fadeIn 2s ease-in; /* Opera < 12.1 */
+            animation: fadeIn 2s ease-in;
 
     z-index: 2;
 }
@@ -456,31 +456,31 @@ i {
 // FADEIN
 
 
-@keyframes fadein {
+@keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 0.9; }
 }
 
 /* Firefox < 16 */
-@-moz-keyframes fadein {
+@-moz-keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 0.9; }
 }
 
 /* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
+@-webkit-keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 0.9; }
 }
 
 /* Internet Explorer */
-@-ms-keyframes fadein {
+@-ms-keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 0.9; }
 }
 
 /* Opera < 12.1 */
-@-o-keyframes fadein {
+@-o-keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 0.9; }
 }
