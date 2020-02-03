@@ -14,8 +14,8 @@ body{
     background-color: #5C0366;
     background-image:
         radial-gradient(
-        2rem,
-            rgba(255, 204, 51, 0.2),
+        1.2rem,
+            rgba(248, 192, 255, 0.2),
             rgba(4,0,0,0.9)
         );
     overflow:hidden;
@@ -25,33 +25,34 @@ body{
     color:#555;
 }
 
-@-webkit-keyframes expand{
-    0% {-webkit-transform: rotate(0deg) scale(1,1);}
-    50% {-webkit-transform: rotate(-180deg) scale(1.6,1.6);}
-    100% {-webkit-transform: rotate(-360deg) scale(1,1);}
-}
-@-moz-keyframes expand{
-    0% {-moz-transform: rotate(0deg) scale(1,1);}
-    50% {-moz-transform: rotate(-180deg) scale(1.4,1.4);}
-    100% {-moz-transform: rotate(0deg) scale(1,1);}
-}
 
 #expand{
     z-index: -4;
-    position:absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     width: 100px;
     height: 100px;
     margin: -50px 0 0 -50px;
 
-    -moz-animation:25s expand 5s linear infinite;
-    -webkit-animation:25s expand 5s linear infinite;
-    animation: 25s expand 5s linear infinite;
+    -moz-animation: 35s expand 5s linear infinite;
+    -webkit-animation: 35s expand 5s linear infinite;
+    animation: 35s expand 5s linear infinite;
 
     background-image: -moz-radial-gradient(50% 50%, circle contain, rgba(248, 192, 0, 0.7), rgba(165, 138, 58, 0) 100%);
     background-image: -webkit-radial-gradient(circle closest-side at 50% 50%, rgba(248, 192, 0, 0.7), rgba(255, 231, 158, 0) 100%);      
     background-image: radial-gradient(circle closest-side at 50% 50%, rgba(248, 192, 0, 0.7), rgba(255, 231, 158, 0) 100%);         
+}
+
+@-webkit-keyframes expand{
+    0% {-webkit-transform: rotate(0deg) scale(1,1);}
+    50% {-webkit-transform: rotate(-180deg) scale(2,2);}
+    100% {-webkit-transform: rotate(-360deg) scale(1,1);}
+}
+@-moz-keyframes expand{
+    0% {-moz-transform: rotate(0deg) scale(1,1);}
+    50% {-moz-transform: rotate(-180deg) scale(1.6,1.6);}
+    100% {-moz-transform: rotate(0deg) scale(1,1);}
 }
 
 
@@ -111,9 +112,7 @@ body h1 {
 }
 
 .viz-on {
-
     display: initial;
-
 }
 
 .viz-off {
@@ -121,31 +120,12 @@ body h1 {
     transition: 0.4s;
 }
 
-
 .viz-on:before {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 1000px;
     height: 100px;
-    background-color: red;
-}
-
-// SKEW ANIMATION
-
-@keyframes skew {
-    0% {
-        transform: skew(0deg, 0deg);
-    }
-    25% {
-        transform: skew(0.5deg, 4deg);
-    }
-    50% {
-        transform: skew(1deg, 1deg);
-    }
-    100% {
-        transform: skew(0deg, 0deg);
-    }
 }
 
 .svg-shape {
@@ -156,7 +136,6 @@ body h1 {
 
     z-index: 2;
 }
-
 
 // BUTTONS
 
