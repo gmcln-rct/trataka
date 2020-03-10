@@ -153,7 +153,6 @@ body h1 {
 
     padding: 0.5rem;
 
-
     font-size: 1.2em;
     font-weight: 600;
     letter-spacing: 1.5px;
@@ -170,28 +169,28 @@ body h1 {
 
 
 .play-button {
-    color: white;
+    color: #5C0366;
     background-color: #FFC619;
     border: 1px solid white;
 
 }
 
 .stop-button {
+    color: #5C0366;
     background-color: #B38809;
     transition: 0.4s;
     border: 1px solid white;
-
 }
-.play-button:hover, .stop-button:hover {
-    color: #5C0366;
 
-    border: 1px solid white;
+.play-button:hover, .stop-button:hover {
+
+    color: white;
     background-color: rgba(255,217,102,0.8);
+    border: 1px solid white;
     transition: 0.4s;
 }
 
 .play-button:hover {
-    color: #5C0366;
     background-color: #FFC619;
     transition: 0.4s;
 }
