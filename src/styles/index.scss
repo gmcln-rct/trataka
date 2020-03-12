@@ -313,7 +313,12 @@ span#yellow-text {
 // SOCIAL SHARE
 // ---------------------------------------------------------------------------------
 #social-share {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
     position: fixed;
+    width: 200px;
     bottom: 2rem;
     left: 2rem;
 
@@ -323,8 +328,10 @@ span#yellow-text {
     z-index: 3;
 
     img {
+        margin: 0 1rem;
+        width: 40px;
         border-radius: 20%;
-        opacity: 0.5;
+        opacity: 0.3;
 
          &:hover {
             filter: brightness(1.5);
