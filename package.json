@@ -1,5 +1,5 @@
 {
-  "name": "Trataka Meditative Immersive Soundscape",
+  "name": "trataka",
   "version": "1.0.0",
   "homepage": "https://trataka.io",
   "description": "Immersive audio visualization for focus and meditation",
@@ -16,7 +16,7 @@
     "fibers": "^4.0.1",
     "mini-css-extract-plugin": "^0.8.0",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
     "requirejs": "^2.3.6",
     "sass": "^1.23.0",
@@ -40,8 +40,7 @@
     "start": "webpack-dev-server --config webpack.dev.js",
     "webpack:watch": "webpack --watch --config webpack.dev.js",
     "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "gh-pages": "^2.2.0"
@@ -62,6 +61,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/gmcln-rct/issues"
-  },
-  "homepage": "https://github.com/gmcln-rct/"
+  }
 }
