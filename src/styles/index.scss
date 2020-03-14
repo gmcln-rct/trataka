@@ -334,10 +334,9 @@ span#yellow-text {
         opacity: 0.3;
 
          &:hover {
-            filter: brightness(1.5);
+            filter: invert(1.0);
           }
     }
-
 
 }
 
