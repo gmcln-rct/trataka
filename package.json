@@ -1,7 +1,6 @@
 {
-  "name": "trataka",
+  "name": "Trataka",
   "version": "1.0.0",
-  "homepage": "https://trataka.io",
   "description": "Immersive audio visualization for focus and meditation",
   "main": "index.js",
   "dependencies": {
@@ -40,11 +39,8 @@
     "start": "webpack-dev-server --config webpack.dev.js",
     "webpack:watch": "webpack --watch --config webpack.dev.js",
     "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize",
-    "deploy": "gh-pages -d dist"
   },
-  "devDependencies": {
-    "gh-pages": "^2.2.0"
-  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gmcln-rct/seaorgan.git"
