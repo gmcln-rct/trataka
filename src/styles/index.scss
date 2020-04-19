@@ -335,6 +335,7 @@ span#yellow-text {
         margin: 0 0.2rem;
         padding: 0.5rem;
         width: 40px;
+        height: auto;
         border-radius: 20%;
         opacity: 0.3;
 
@@ -343,8 +344,18 @@ span#yellow-text {
           }
     }
 
+    #share-icon {
+        width: 40px;
+        height: 40px;
+    }
+
 }
 
+
+footer  {
+    margin: 3vmin 0 1vmin 0;
+    text-align: center;
+}
 
 // ---------------------------------------------------------------------------------
 // ABOUT OVERLAY
