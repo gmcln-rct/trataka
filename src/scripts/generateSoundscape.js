@@ -163,6 +163,7 @@ export const generateSoundscape = (notesList) => {
         let testHalf = testLength / 2;
         let flameColor, flameBase, flameOpac;
         fftContext.filter = 'blur(1px)';
+        fftContext.filter = 'brightness(1.4)';
         // let numberOfFrame = 10;
         // fftContext.shadowBlur = 1;
         // fftContext.shadowColor = "rgba(255, 198, 25, 0.5";
