@@ -1,6 +1,6 @@
 import "./styles/index.scss";
 
-import { ydayCurrents } from './scripts/fetchCurrentsData';
+import { makeNewTones } from './scripts/fetchCurrentsData';
 import { setUpSounds } from './scripts/setUpSounds';
 import { generateSoundscape, stopSoundscape, _isPlaying } from './scripts/generateSoundscape';
 import StartAudioContext from 'startaudiocontext';
@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     elem.onclick = function (e) {
         e.preventDefault();
-
+        Tone.context.resume()
         if (_isPlaying) {
             stopSoundscape();
 
@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
         } else {
             StartAudioContext(Tone.context, '#select-button')
                 .then( () => {
-                    ydayCurrents(result)
+                    makeNewTones(result)
                         .then(
                             () => {
                                 notesList = setUpSounds();
