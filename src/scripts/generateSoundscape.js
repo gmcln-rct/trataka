@@ -152,6 +152,9 @@ export const generateSoundscape = (notesList) => {
     // drawing the FFT
     function drawFFT(values) {
         // Clear canvas
+
+        canvasWidth = document.body.getBoundingClientRect().width;
+        canvasHeight = document.body.getBoundingClientRect().height;
         fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
 
         let x, y, barWidth, val;
@@ -191,17 +194,7 @@ export const generateSoundscape = (notesList) => {
             // grd.addColorStop(1, "red");
             grd.addColorStop(1, "rgba(255, 0, " + flameColor + ", 1)");
             fftContext.fillStyle = grd;
-
             fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
-
-            // fftContext.fillStyle = "rgba(31, 178, 204, " + val + ")";
-
-
- 
-
-            // blur slows it down
-            // fftContext.shadowBlur = 0.5;
-            // fftContext.shadowColor = "#FFC619";
         }
 
 
