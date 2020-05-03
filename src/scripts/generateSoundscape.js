@@ -139,7 +139,7 @@ export const generateSoundscape = (notesList) => {
     // let fftNum = 4096;
     let fftNum = 2048;
     const fft = new Tone.Analyser("fft", fftNum);
-    const waveform = new Tone.Analyser("waveform", 1024);
+    const waveform = new Tone.Analyser("waveform", 2048);
 
     leftSynth.fan(waveform, fft);
     rightSynth.fan(waveform, fft);
@@ -153,8 +153,8 @@ export const generateSoundscape = (notesList) => {
     function drawFFT(values) {
         // Clear canvas
 
-        canvasWidth = document.body.getBoundingClientRect().width;
-        canvasHeight = document.body.getBoundingClientRect().height;
+        // canvasWidth = document.body.getBoundingClientRect().width;
+        // canvasHeight = document.body.getBoundingClientRect().height;
         fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
 
         let x, y, barWidth, val;
@@ -202,8 +202,13 @@ export const generateSoundscape = (notesList) => {
 
     //size the canvases
     function sizeCanvases() {
-        canvasWidth = fftCanvas.offsetWidth;
-        canvasHeight = fftCanvas.offsetHeight;
+        if (!canvasWidth) {
+            canvasWidth = document.body.getBoundingClientRect().width;
+        }
+        if (!canvasHeight) {
+
+            canvasHeight = fftCanvas.offsetHeight;
+        }
 
         fftContext.canvas.width = canvasWidth;
         fftContext.canvas.height = canvasHeight;
