@@ -198,8 +198,6 @@ export const generateSoundscape = (notesList) => {
             fftContext.fillStyle = grd;
             fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
         }
-
-
     }
 
     //size the canvases
@@ -229,9 +227,7 @@ export const generateSoundscape = (notesList) => {
             loop();
             clearInterval(synthInterval);
         } 
-        
     }, 5);
-
 
     Tone.BufferSource.prototype.start = function (time, offset, duration, gain) {
         // Prevent buffer playback if we have exceeded max # buffers playing
